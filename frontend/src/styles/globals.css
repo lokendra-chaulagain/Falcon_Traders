@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Montserrat;
+  background: var(--color-white);
+  overflow-x: hidden;
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-light-blue: #ddecf8;
+}
+
+/* Hero Banner Section---------------- */
+.hero_banner_img_div {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.title_button_div {
+  position: absolute;
+  top: 45%;
+  left: 65%;
+  width: 300px;
+}
+
+/* Shop by category Section---------------- */
+.category_image_div {
+  position: relative;
+  height: 300px !important;
+}
+
+/* Trending Section---------------- */
+.trending_image_div {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+/* Text image section  */
+.text_img_wrapper{
+  padding: 100px 0px;
+}
+
+
+.text_img_section_img_div {
+  position: relative;
+  height: 500px;
+}
+
+/* Review section  */
+.review_wrapper {
+  background-color: var(--color-light-blue);
+  padding: 70px 0px;
+}
+
+/* Footer */
+.footer_wrapper {
+  padding-top: 60px;
+}
+
+.footer_last_row {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer_icon_div1 {
+  background-color: #55acee;
+  color: var(--color-white);
+}
+
+.footer_icon_div2 {
+  background-color: #2d4e66;
+  color: var(--color-white);
+}
+
+.footer_icon_div3 {
+  background-color: #f77737;
+  color: var(--color-white);
+}
+
+.subscribe_input{
+  border: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0) !important;
+
+}
+
+.subscribe_input:focus{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.466) !important;
+}
