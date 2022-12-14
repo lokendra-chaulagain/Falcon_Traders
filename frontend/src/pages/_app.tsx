@@ -10,11 +10,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     import("bootstrap");
   }, []);
   return (
-    <>
+    <div className="loki">
       <Navbar />
       <Component {...pageProps} />
       <Footer/>
-    </>
+    </div>
   );
 }
 

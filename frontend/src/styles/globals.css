@@ -13,6 +13,8 @@ body {
 :root {
   --color-white: #ffffff;
   --color-light-blue: #ddecf8;
+  --input-bg-color: #f8f8f8;
+  --color-yellow: #d1bc7a;
 }
 
 /* Hero Banner Section---------------- */
@@ -43,10 +45,9 @@ body {
 }
 
 /* Text image section  */
-.text_img_wrapper{
+.text_img_wrapper {
   padding: 100px 0px;
 }
-
 
 .text_img_section_img_div {
   position: relative;
@@ -84,13 +85,82 @@ body {
   color: var(--color-white);
 }
 
-.subscribe_input{
+.subscribe_input {
   border: none !important;
   box-shadow: none !important;
   border-bottom: 1px solid rgba(128, 128, 128, 0) !important;
-
 }
 
-.subscribe_input:focus{
+.subscribe_input:focus {
   border-bottom: 1px solid rgba(128, 128, 128, 0.466) !important;
+}
+
+/* Login page */
+.login_input {
+  border: none !important;
+  outline: none !important;
+  font-size: 18px !important;
+}
+
+.login_input:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.login_input_div {
+  border: 1px solid var(--input-bg-color);
+}
+
+.login_button {
+  padding: 12px 0px !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  background-color: var(--color-yellow) !important;
+  color: var(--color-white) !important;
+}
+
+/* Contact page------------------ */
+.shadow_box {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.contact_input {
+  box-shadow: none !important;
+}
+.contact_input:focus{
+  border-color: var(--color-yellow) !important;
+}
+
+.contact_social_icon{
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.contact_social_icon:hover{
+  transform: translateY(-3px);
+  color: var(--color-yellow);
+}
+
+
+/* Blog page ------------------------ */
+.single_blog_image_div{
+  position: relative;
+  height: 700px ;
+}
+
+.global_para{
+  font-size: 19px !important;
+  line-height: 35px;
+}
+
+.author_image_div{
+  position: relative;
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.about_author_div{
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
