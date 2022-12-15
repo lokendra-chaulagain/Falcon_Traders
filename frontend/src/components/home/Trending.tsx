@@ -22,7 +22,7 @@ export default function Trending() {
   ];
   return (
     <div>
-      <h2 className="text-center">Trending Products</h2>
+      <h2 className="text-center mb-5 dark_blue">Trending Products</h2>
       <div className="row">
         {trendings &&
           trendings.map((trending: any, index: any) => (
@@ -31,22 +31,22 @@ export default function Trending() {
               className="trending_item col-4 ">
               <div className="trending_image_div ">
                 <Image
-                  className="rounded-3"
+                  className="rounded-1"
                   src={trending.img}
                   layout="fill"
                   objectFit="cover"
                   alt=""
                 />
               </div>
-              <div className="d-flex align-items-center justify-content-between px-2">
-                <p>Flower vase</p>
-                <p>Nrs 500 /-</p>
+              <div className="d-flex align-items-center justify-content-between mt-3 px-2">
+                <p className="h6 dark_blue">Flower vase</p>
+                <p className="h6 color_yellow">Nrs 500 /-</p>
               </div>
             </div>
           ))}
       </div>
-      <div className="text-center">
-        Shop More <BsArrowRight />{" "}
+      <div className="text-center mt-4 dark_blue">
+        Shop More <BsArrowRight />
       </div>
     </div>
   );

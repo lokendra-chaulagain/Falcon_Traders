@@ -10,7 +10,7 @@ export default function Footer() {
     <div className="footer_wrapper">
       <div className="row">
         <div className="col-8 d-flex  align-items-center justify-content-center ">
-          <h5 className="fw-semibold">SUBSCRIBE TO OUR NEWSLETTER</h5>
+          <h5 className="fw-semibold h5 dark_blue">SUBSCRIBE TO OUR NEWSLETTER</h5>
           <input
           autoComplete="off"
             type="email"
@@ -21,7 +21,7 @@ export default function Footer() {
           />
           <BsArrowRight size={26} color="grey"  />
         </div>
-        <div className="col-4 d-flex align-items-center justify-content-center gap-3">
+        <div className="col-4 d-flex align-items-center justify-content-center gap-3 dark_blue">
           JOIN US ON
           <AiOutlineTwitter
             size={34}
@@ -38,10 +38,10 @@ export default function Footer() {
         </div>
       </div>
       <hr />
-      <div className="row footer_last_row">
-        <div className="col small d-flex align-items-center justify-content-center">TERMS & CODITION POLICY</div>
-        <div className="col h4 d-flex align-items-center justify-content-center">Logo Here</div>
-        <div className="col d-flex align-items-center justify-content-center">© 2019 Bamboo All Rights Reserved</div>
+      <div className="row footer_last_row ">
+        <div className="col small d-flex align-items-center justify-content-center dark_blue">TERMS & CODITION POLICY</div>
+        <div className="col h4 d-flex align-items-center justify-content-center dark_blue">Logo Here</div>
+        <div className="col d-flex align-items-center justify-content-center dark_blue">© 2019 Bamboo All Rights Reserved</div>
       </div>
     </div>
   );

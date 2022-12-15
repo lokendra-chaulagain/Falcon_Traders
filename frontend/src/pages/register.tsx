@@ -1,6 +1,6 @@
 import React from "react";
-import { BiUser } from "react-icons/bi";
-import { TbKey } from "react-icons/tb";
+import { BsGoogle } from "react-icons/bs";
+import { GrFacebookOption } from "react-icons/gr";
 
 export default function Register() {
   return (
@@ -9,21 +9,35 @@ export default function Register() {
         <h1 className="h1 pb-2">Create an account </h1>
         <small>Signup to get the most out of Falcon Traders</small>
 
-        <div className="d-flex align-items-center login_input_div px-2 mt-5 rounded-1 py-1 w-25">
-          <BiUser size={25} />
+        <div className="w-25 my-2">
           <input
             type="text"
-            className="form-control login_input "
-            placeholder="Username"
+            className="form-control register_input rounded-1 py-3 "
+            placeholder="Full Name"
           />
         </div>
 
-        <div className="d-flex align-items-center login_input_div px-2 mt-3 rounded-1 py-1 w-25">
-          <TbKey size={25} />
+        <div className="w-25 my-2">
           <input
-            type="password"
-            className="form-control  login_input"
+            type="text"
+            className="form-control register_input rounded-1 py-3 "
+            placeholder="Email"
+          />
+        </div>
+
+        <div className="w-25 my-2">
+          <input
+            type="text"
+            className="form-control register_input rounded-1 py-3 "
             placeholder="Password"
+          />
+        </div>
+
+        <div className="w-25 my-2">
+          <input
+            type="text"
+            className="form-control register_input rounded-1 py-3 "
+            placeholder="Confirm Password"
           />
         </div>
 
@@ -50,7 +64,21 @@ export default function Register() {
           className="btn  w-25 login_button rounded-1">
           Login
         </button>
-        <small className="py-3 text-muted">Don’t Have an account ? Create One</small>
+        <small className="py-3 text-muted">Already have an account ? Create One</small>
+        <small className="py-3 text-muted">OR</small>
+
+        <div className="d-flex gap-2">
+          <GrFacebookOption
+            size={34}
+            className=" footer_icon_div2 rounded-circle  p-2"
+          />
+          <BsGoogle
+            size={34}
+            className=" footer_icon_div3 rounded-circle  p-2"
+          />
+        </div>
+
+        <div></div>
       </div>
     </div>
   );

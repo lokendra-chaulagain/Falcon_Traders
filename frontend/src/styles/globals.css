@@ -16,9 +16,19 @@ body {
   --input-bg-color: #f8f8f8;
   --color-yellow: #d1bc7a;
   --color-orange: #df7a5e;
+  --color-grey: #f5f5f5;
+  --color-dark-blue: #2d4e66;
+  --color-paragraph: #1c1c1c;
 }
 
+/* Navbar------------------------------- */
+
 /* Hero Banner Section---------------- */
+.hero_button{
+  background-color: var(--color-orange) !important;
+  color: var(--color-white) !important;
+  
+}
 .hero_banner_img_div {
   height: 100vh;
   width: 100%;
@@ -33,9 +43,36 @@ body {
 }
 
 /* Shop by category Section---------------- */
-.category_image_div {
+.category_img_div {
   position: relative;
-  height: 300px !important;
+  height: 65vh !important;
+  overflow: hidden;
+}
+
+.category_img_div_desc{
+  position: absolute;
+  bottom: -110px;
+  transition: all 300ms ease-in-out;
+  color: var(--color-white) !important;
+}
+
+.category_img_div:hover .category_img_div_desc{
+  transform: translateY(-350px);
+}
+
+/* Featured Product ----------------- */
+.featured_product_img{
+  position: relative;
+  height: 70vh;
+  overflow: hidden !important;
+}
+
+.featured_product_img_desc{
+  position: absolute;
+  color: var(--color-white);
+  bottom: 0px;
+  background-color: #0000 !important;
+
 }
 
 /* Trending Section---------------- */
@@ -55,13 +92,16 @@ body {
   height: 500px;
 }
 
-/* Review section  */
+/* Review section  -------------*/
 .review_wrapper {
   background-color: var(--color-light-blue);
   padding: 70px 0px;
+  margin-bottom: 100px;
 }
 
-/* Footer */
+/*  */
+
+/* Footer -------------------*/
 .footer_wrapper {
   padding-top: 60px;
 }
@@ -96,16 +136,15 @@ body {
   border-bottom: 1px solid rgba(128, 128, 128, 0.466) !important;
 }
 
-/* Login page */
-.login_input {
-  border: none !important;
+/* Login page-----------------------------*/
+.register_input {
   outline: none !important;
   font-size: 18px !important;
 }
 
-.login_input:focus {
-  border: none !important;
+.register_input:focus {
   box-shadow: none !important;
+  border-color: var(--color-yellow) !important;
 }
 
 .login_input_div {
@@ -134,7 +173,7 @@ body {
 
 .contact_social_icon {
   cursor: pointer;
-  transition: all 300ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 
 .contact_social_icon:hover {
@@ -177,16 +216,16 @@ body {
   width: 35%;
 }
 
-.single_blog_card{
+.single_blog_card {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.single_blog_img_div{
+.single_blog_img_div {
   position: relative;
   height: 40vh;
 }
 
-.second_featured_article_img_div{
+.second_featured_article_img_div {
   position: relative;
   height: 65vh;
 }
@@ -222,10 +261,6 @@ body {
   height: 60vh;
 }
 
-/* .loki {
-  margin-top: 20vh !important;
-} */
-
 .quantity_input {
   border-radius: 0px !important;
   box-shadow: none !important;
@@ -243,4 +278,74 @@ body {
 .single_product_swiper_img_div {
   position: relative;
   height: 60vh;
+}
+
+/* Checkout page-------------------------- */
+.checkout_input {
+  box-shadow: none !important;
+}
+.checkout_input:focus {
+  border-color: var(--color-yellow) !important;
+}
+
+/* About page------------------ */
+
+.about_hero {
+  padding: 40px 600px !important;
+}
+
+.about_sec_1_right_img_div {
+  position: relative;
+  height: 50vh;
+}
+
+.about_swiper_img_div {
+  position: relative;
+  height: 60vh;
+}
+.about_swiper_desc_div {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+}
+
+.grey_bg {
+  background-color: var(--color-grey);
+  padding-top: 200px;
+  padding-bottom: 140px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.dark_blue {
+  color: var(--color-dark-blue);
+}
+
+.fz18 {
+  font-size: 18px;
+  color: var(--color-paragraph);
+}
+
+.para_color {
+  color: var(--color-paragraph);
+}
+
+.about_swiper_section {
+  padding-left: 280px;
+}
+
+.color_white {
+  color: var(--color-white) !important;
+}
+
+.color_orange {
+  color: var(--color-orange) !important;
+}
+
+.color_yellow {
+  color: var(--color-yellow) !important;
+}
+
+.cp{
+  cursor: pointer !important;
 }

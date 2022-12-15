@@ -28,8 +28,8 @@ export default function Category() {
     },
   ];
   return (
-    <div>
-      <h2 className="text-center">Shop by Category</h2>
+    <div className="my-5 ">
+      <h2 className="text-center mb-5 dark_blue">Shop by Category</h2>
       <div className="row">
         {categories &&
           categories.map((category: any, index: any) => (
@@ -39,8 +39,13 @@ export default function Category() {
               <Image
                 src={category.img}
                 objectFit="cover"
+                layout="fill"
                 alt=""
               />
+              <div className="category_img_div_desc px-3  ">
+                <h2 className="fw-bold text-center">Bathroom Ware</h2>
+                <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum sit mi egestas eu.</p>
+              </div>
             </div>
           ))}
       </div>
