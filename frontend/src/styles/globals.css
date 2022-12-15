@@ -15,6 +15,9 @@ body {
   --color-light-blue: #ddecf8;
   --input-bg-color: #f8f8f8;
   --color-yellow: #d1bc7a;
+  --color-orange: #DF7A5E;
+
+  
 }
 
 /* Hero Banner Section---------------- */
@@ -127,40 +130,89 @@ body {
 .contact_input {
   box-shadow: none !important;
 }
-.contact_input:focus{
+.contact_input:focus {
   border-color: var(--color-yellow) !important;
 }
 
-.contact_social_icon{
+.contact_social_icon {
   cursor: pointer;
   transition: all 300ms ease-in-out;
 }
 
-.contact_social_icon:hover{
+.contact_social_icon:hover {
   transform: translateY(-3px);
   color: var(--color-yellow);
 }
 
-
 /* Blog page ------------------------ */
-.single_blog_image_div{
+.single_blog_image_div {
   position: relative;
-  height: 700px ;
+  height: 700px;
 }
 
-.global_para{
+.global_para {
   font-size: 19px !important;
   line-height: 35px;
 }
 
-.author_image_div{
+.author_image_div {
   position: relative;
   height: 200px;
   width: 200px;
   overflow: hidden;
 }
 
-.about_author_div{
+.about_author_div {
   padding-top: 100px;
   padding-bottom: 50px;
+}
+
+/* Product page */
+/* .product_hero{
+  position: re;
+} */
+.product_banner_image_div {
+  position: relative;
+  height: 90vh;
+}
+
+.product_search_div {
+  position: absolute;
+  bottom: -100px;
+  background-color: var(--color-white);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.product_left_div {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.product_left_img_div {
+  position: relative;
+  height: 60vh;
+}
+
+.loki {
+  margin-top: 20vh !important;
+}
+
+.quantity_input {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+
+}
+.quantity_input:focus{
+  border-color: var(--color-yellow) !important;
+}
+
+.add_cart_btn{
+  background-color: var(--color-orange) !important;
+ color: var(--color-white) !important;
+ font-size: 18px !important;
+
+}
+
+.single_product_swiper_img_div{
+  position: relative;
+  height: 60vh;
 }
