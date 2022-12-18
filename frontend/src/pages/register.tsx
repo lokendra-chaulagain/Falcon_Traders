@@ -1,47 +1,82 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsGoogle } from "react-icons/bs";
 import { GrFacebookOption } from "react-icons/gr";
+import { useForm } from "react-hook-form";
+import Api from "../service/Api.js";
+let CallApi = new Api();
+import { MiscellaneousContext } from "../context/MiscellaneousContext.js";
 
 export default function Register() {
-  return (
-    <div className="login_wrapper my-5">
-      <div className="d-flex flex-column align-items-center ">
-        <h1 className="h1 pb-2">Create an account </h1>
-        <small>Signup to get the most out of Falcon Traders</small>
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm();
+  const handleAllField = watch();
+  console.log(handleAllField);
 
-        <div className="w-25 my-2">
+  const registerUser = async () => {
+    try {
+      const res = await CallApi.storeData(`user/signup`, handleAllField);
+      console.log(res);
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="login_wrapper d-flex align-items-center justify-content-center container">
+      <form
+        onSubmit={handleSubmit(registerUser)}
+        className="d-flex flex-column align-items-center w-50">
+        <h1 className="h1 pb-2 dark_blue fw-bold">Create an account </h1>
+        <p className="fz18">Signup to get the most out of Falcon Traders</p>
+
+        <div className="w-100 my-2">
           <input
             type="text"
             className="form-control register_input rounded-1 py-3 "
             placeholder="Full Name"
+            {...register("fullName", { required: true })}
           />
+          {errors.fullName && <span className="text-danger fw-semibold">Full Name is required</span>}
         </div>
 
-        <div className="w-25 my-2">
+        <div className="w-100 my-2">
           <input
-            type="text"
+            type="email"
             className="form-control register_input rounded-1 py-3 "
             placeholder="Email"
+            {...register("email", { required: true })}
           />
+          {errors.email && <span className="text-danger fw-semibold">Email is required</span>}
         </div>
 
-        <div className="w-25 my-2">
+        <div className="w-100 my-2">
           <input
-            type="text"
+            type="password"
             className="form-control register_input rounded-1 py-3 "
             placeholder="Password"
+            {...register("password", { required: true })}
           />
+          {errors.password && <span className="text-danger fw-semibold">Password is required</span>}
         </div>
 
-        <div className="w-25 my-2">
+        <div className="w-100 my-2">
           <input
-            type="text"
+            type="password"
             className="form-control register_input rounded-1 py-3 "
             placeholder="Confirm Password"
+            {...register("confirmPassword", { required: true })}
           />
+          {errors.confirmPassword && <span className="text-danger fw-semibold">Confirm Password is required</span>}
+          {handleAllField.password && handleAllField.confirmPassword && handleAllField.password != handleAllField.confirmPassword && <span className="text-danger fw-semibold">Password does not match !</span>}
         </div>
 
-        <div className=" d-flex  w-25 justify-content-between py-2">
+        <div className=" d-flex  w-100 justify-content-between py-2">
           <div className=" form-check">
             <input
               type="checkbox"
@@ -60,8 +95,8 @@ export default function Register() {
         </div>
 
         <button
-          type="button"
-          className="btn  w-25 login_button rounded-1">
+          type="submit"
+          className="btn  w-100 login_button rounded-1">
           Login
         </button>
         <small className="py-3 text-muted">Already have an account ? Create One</small>
@@ -77,9 +112,7 @@ export default function Register() {
             className=" footer_icon_div3 rounded-circle  p-2"
           />
         </div>
-
-        <div></div>
-      </div>
+      </form>
     </div>
   );
 }

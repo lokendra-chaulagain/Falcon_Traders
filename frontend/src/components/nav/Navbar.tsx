@@ -112,6 +112,28 @@ export default function Navbar() {
                     </div>
                   </Link>
                 </li>
+
+                <li className="nav-item">
+                  <Link
+                    href={"/register"}
+                    className="nav-link  "
+                    aria-current="page">
+                    <div className="d-flex align-items-center gap-2 nav_link">
+                      <BsTelephone size={24} /> Register
+                    </div>
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link
+                    href={"/login"}
+                    className="nav-link  "
+                    aria-current="page">
+                    <div className="d-flex align-items-center gap-2 nav_link">
+                      <BsTelephone size={24} /> login
+                    </div>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

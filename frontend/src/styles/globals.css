@@ -113,7 +113,7 @@ body {
 
 /* Footer -------------------*/
 .footer_wrapper {
-  padding-top: 60px;
+  padding-top: 150px;
 }
 
 .footer_last_row {
@@ -147,6 +147,9 @@ body {
 }
 
 /* Login page-----------------------------*/
+.login_wrapper{
+  padding-top: 150px;
+}
 .register_input {
   outline: none !important;
   font-size: 18px !important;
@@ -170,7 +173,7 @@ body {
 }
 
 /* Contact page------------------ */
-.contact_page_wrapper{
+.contact_page_wrapper {
   margin-top: 120px !important;
 }
 
@@ -194,7 +197,7 @@ body {
 
 .shadow_box {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  margin-bottom: 80px ;
+  margin-bottom: 80px;
 }
 
 .contact_input {
@@ -209,7 +212,7 @@ body {
 .contact_social_icon {
   cursor: pointer;
   transition: all 300ms ease-in-out;
-  color: var(--color-dark-blue) ;
+  color: var(--color-dark-blue);
 }
 
 .contact_social_icon:hover {
@@ -253,7 +256,20 @@ body {
   background-color: var(--color-white);
   position: absolute;
   top: 55px;
-  width: 35%;
+  width: calc(45rem - 2vw);
+  left: 60px;
+}
+
+@media only screen and (max-width: 810px) {
+  .featured_article_desc_div {
+    left: 0px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .featured_article_desc_div {
+    display: none;
+  }
 }
 
 .single_blog_card {
@@ -275,7 +291,19 @@ body {
   position: absolute;
   top: 15%;
   right: 0;
-  width: 35%;
+  width: calc(45rem - 2vw);
+}
+
+@media only screen and (max-width: 810px) {
+  .second_featured_article_desc_div {
+    left: 0px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .second_featured_article_desc_div {
+    display: none;
+  }
 }
 
 /* Product page--------------------- */
@@ -332,9 +360,14 @@ body {
 }
 
 /* About page------------------ */
+.about_logo_div{
+  position: relative;
+  height: 15vh;
+  width: 100%;
+}
 
 .about_hero {
-  padding: 40px 600px !important;
+  padding: 150px calc(40rem - 5vw) !important;
 }
 
 .about_sec_1_right_img_div {

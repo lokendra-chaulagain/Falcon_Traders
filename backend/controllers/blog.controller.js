@@ -62,8 +62,30 @@ const getBlogById = async (req, res, next) => {
 const getAllBlog = async (req, res, next) => {
   try {
     let allService = [];
+    let featuredBlogs = [];
+    let bestPickBlogs = [];
+
     if (req.query.slug) {
       allService = await Blog.find({ url: req.query.slug });
+
+    }
+
+
+      else if (req.query.featured) {
+        featuredBlogs = await Blog.find({ featured: req.query.featured="1" });
+        res.status(200).json(featuredBlogs.slice(0,2));
+
+      }
+
+        else if (req.query.bestPick) {
+          bestPickBlogs = await Blog.find({ bestPick: req.query.bestPick="1" });
+          res.status(200).json(bestPickBlogs.slice(0,3))
+
+
+
+
+
+
     } else if (req.query.category) {
       allService = await Blog.find({ category: req.query.category });
     } else {
@@ -75,5 +97,7 @@ const getAllBlog = async (req, res, next) => {
     return next(createError(500, "Server Error while getting all Blog !"));
   }
 };
+
+
 
 export { createBlog, updateBlog, deleteBlog, getBlogById, getAllBlog };

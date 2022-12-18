@@ -7,18 +7,28 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { BsArrowRight } from "react-icons/bs";
+import logo from "../asset/logo.png";
 
 export default function About() {
   return (
     <div className="px-5 my-5 pt-5">
       <div className="about_hero d-flex  flex-column align-items-center justify-content-center ">
-        <h2 className="mb-4">Logo Here</h2>
-        <p className="text-center mt-5 pt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat libero, praesent quam enim. Sit tempus fermentum nunc mi rhoncus ultricies sit. Sit mauris eget eget ornare nec vestibulum tellus porta.</p>
+        <div className="about_logo_div ">
+          <Image
+            src={logo}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+          />
+        </div>
+        <p className="text-center mt-5 pt-4 fz18">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat libero, praesent quam enim. Sit tempus fermentum nunc mi rhoncus ultricies sit. Sit mauris eget eget ornare nec vestibulum tellus porta.</p>
       </div>
 
       <div className="grey_bg ">
+
+        {/* ------------------------------------------- */}
         <div className="row my-">
-          <div className="col-4 p-0 d-flex flex-column  justify-content-center">
+          <div className="col-12  col-xl-4 p-0 d-flex flex-column  justify-content-center">
             <h1 className="h1 fw-bold dark_blue">Best Place to get your Interior Needs</h1>
             <h6 className="text-muted mb-3">Best Place to get your Interior Needs</h6>
 

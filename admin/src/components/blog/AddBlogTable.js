@@ -36,13 +36,13 @@ export default function AddBlogTable() {
     formData.append("category", handleAllField.category);
     formData.append("featured", handleAllField.featured);
     formData.append("bestPick", handleAllField.bestPick);
+    formData.append("timeRead", handleAllField.timeRead);
     formData.append("description", content);
     if (images) {
       formData.append("thumbnail", images[0].file, images[0].file.name);
     }
     try {
       const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/blog`, formData);
-      // 
       createSuccess();
       reset();
       console.log("Form has been submitted");
@@ -92,7 +92,6 @@ export default function AddBlogTable() {
                   <button
                     type="button"
                     className=" input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
-                    // style={isDragging ? { color: "red" } : null}
                     onClick={onImageUpload}
                     {...dragProps}>
                     Click or Drop here
@@ -140,11 +139,6 @@ export default function AddBlogTable() {
             {errors.category && <p className="form_hook_error">{`${errors.category.message}`}</p>}
           </div>
 
-
-
-
-
-
           <div className="row ">
             <label
               htmlFor="featured"
@@ -167,16 +161,11 @@ export default function AddBlogTable() {
             {errors.featured && <p className="form_hook_error">{`${errors.featured.message}`}</p>}
           </div>
 
-
-
-
-
-
           <div className="row ">
             <label
               htmlFor="bestPick"
               className="form-label mt-3 p_zero_first_cap h6 ">
-            Best Pick
+              Best Pick
             </label>
 
             <select
@@ -196,6 +185,20 @@ export default function AddBlogTable() {
 
 
 
+          <div className="row ">
+            <label
+              htmlFor="timeRead"
+              className="form-label p_zero_first_cap h6 mt-3 ">
+              Time Read
+            </label>
+            <input
+            type="number"
+              className=" input_field_style form-control form-control-lg px-2  border-0  rounded-0"
+              {...register("timeRead", { required: "TimeRead is required" })}
+              placeholder="timeRead"
+            />
+            {errors.timeRead && <p className="form_hook_error">{`${errors.timeRead.message}`}</p>}
+          </div>
 
 
 
@@ -205,7 +208,9 @@ export default function AddBlogTable() {
 
 
 
-          
+
+
+
 
           <div className="row">
             <label

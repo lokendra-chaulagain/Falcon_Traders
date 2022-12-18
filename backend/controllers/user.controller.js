@@ -16,8 +16,8 @@ const registerUser = async (req, res) => {
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
       const user = new User({
+        fullName: req.body.fullName,
         email: req.body.email,
-        role: req.body.role,
         password: hashedPassword,
       });
 
@@ -44,7 +44,6 @@ const loginUser = async (req, res) => {
           // ...user,
           id: user._id,
           email: user.email,
-          role: user.role,
           accessToken,
         });
       } else {
