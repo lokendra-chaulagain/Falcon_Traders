@@ -28,14 +28,14 @@ const createContact = async (req, res, next) => {
       }
     });
 
-    const name = req.body.name;
+    const fullName = req.body.fullName;
     const email = req.body.email;
     const message = req.body.message;
     const mail = {
       // from: name,
       to: "lokendrachaulagain803@gmail.com",
       subject: "Contact Form Submission",
-      html: `<p>Name: ${name}</p>
+      html: `<p>Full Name: ${fullName}</p>
              <p>Email: ${email}</p>
              <p>Message: ${message}</p>`,
     };

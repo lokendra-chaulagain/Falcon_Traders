@@ -7,7 +7,7 @@ import Image from "next/image";
 import ImageUploading from "react-images-uploading";
 
 export default function AddBannerDialog({ setIsUpdated }) {
-  const { handleClickOpen, handleClose, open, somethingWentWrong } = useContext(MiscellaneousContext);
+  const { handleClickOpen, createSuccess, handleClose, open, somethingWentWrong } = useContext(MiscellaneousContext);
 
   const {
     register,
@@ -27,19 +27,15 @@ export default function AddBannerDialog({ setIsUpdated }) {
     const formData = new FormData();
     formData.append("title", allFields.title);
     formData.append("status", allFields.status);
-    formData.append("description", allFields.description);
     if (images) {
       formData.append("thumbnail", images[0].file, images[0].file.name);
     }
-
     try {
       const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/banner`, formData);
-      // 
       setIsUpdated(3);
       handleClose();
       reset();
-      console.log("Banner create success");
-      console.log(res);
+      createSuccess();
     } catch (error) {
       console.log(error);
       somethingWentWrong();
@@ -85,7 +81,6 @@ export default function AddBannerDialog({ setIsUpdated }) {
                   <button
                     type="button"
                     className=" input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
-                    // style={isDragging ? { color: "red" } : null}
                     onClick={onImageUpload}
                     {...dragProps}>
                     Click or Drop here
@@ -133,23 +128,9 @@ export default function AddBannerDialog({ setIsUpdated }) {
             {errors.title && <p className="form_hook_error">{`${errors.title.message}`}</p>}
           </div>
 
-          <div className="row ">
-            <label
-              htmlFor="description"
-              className="form-label px-0 mt-2 h6   ">
-              Description
-            </label>
-            <input
-              className=" input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
-              {...register("description", { required: "description is required" })}
-              placeholder="Description"
-            />
-            {errors.description && <p className="form_hook_error">{`${errors.description.message}`}</p>}
-          </div>
-
           <div className="row">
             <label
-              htmlFor="description"
+              htmlFor="status"
               className="form-label px-0 mt-2 h6 ">
               Active Status
             </label>

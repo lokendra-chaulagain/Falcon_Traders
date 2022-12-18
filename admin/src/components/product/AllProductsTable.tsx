@@ -6,7 +6,6 @@ import { Button } from "@mui/material";
 import { AiTwotoneEdit } from "react-icons/ai";
 import Image from "next/image";
 
-
 export default function AllProductsTable({ products, deleteProduct }: any) {
   console.log(products[12]);
 
@@ -35,7 +34,7 @@ export default function AllProductsTable({ products, deleteProduct }: any) {
               <th scope="col">Category</th>
               <th scope="col">Description</th>
               <th scope="col">Featured</th>
-              <th scope="col">Top Selling</th>
+              <th scope="col">Trending</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -48,22 +47,22 @@ export default function AllProductsTable({ products, deleteProduct }: any) {
                   <th scope="row">{index + 1}</th>
                   <td>{product.name}</td>
                   <td>
-                  <a
-                    className="d-flex "
-                    href={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}${product.image}`}>
-                    ​
-                    <div className="banner_table_image_div">
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}${product.image}`}
-                        quality={50}
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-1"
-                        alt="myimage"
-                      />
-                    </div>
-                  </a>
-                </td>
+                    <a
+                      className="d-flex "
+                      href={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}${product.image}`}>
+                      ​
+                      <div className="banner_table_image_div">
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}${product.image}`}
+                          quality={50}
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded-1"
+                          alt="myimage"
+                        />
+                      </div>
+                    </a>
+                  </td>
                   <td className="small">
                     <div className="dropdown">
                       <button
@@ -109,10 +108,14 @@ export default function AllProductsTable({ products, deleteProduct }: any) {
 
                   <td>{product.category}</td>
                   <td>{product.description}</td>
+
                   {product.featured == 1 && <td className="active_status_green_color">Yes</td>}
                   {product.featured == 0 && <td className="active_status_red_color">No</td>}
+                  {product.featured == "Null" && <td className="text-warning">Null</td>}
+
                   {product.topSelling == 1 && <td className="active_status_green_color">Yes</td>}
                   {product.topSelling == 0 && <td className="active_status_red_color">No</td>}
+                  {product.topSelling == "Null" && <td className="text-warning">Null</td>}
 
                   <td>
                     <div className="d-flex ">

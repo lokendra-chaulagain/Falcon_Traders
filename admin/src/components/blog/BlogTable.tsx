@@ -28,6 +28,8 @@ export default function EventTable({ blogs, deleteBlog }: any) {
               <th scope="col">Title</th>
               <th scope="col">Image</th>
               <th scope="col">Category</th>
+              <th scope="col">Featured</th>
+              <th scope="col">Best-Pick</th>
               <th scope="col">Description</th>
               <th scope="col">Created At</th>
               <th scope="col">Actions</th>
@@ -59,6 +61,15 @@ export default function EventTable({ blogs, deleteBlog }: any) {
                     </a>
                   </td>
                   <td>{data.category}</td>
+
+                  {data.featured == 1 && <td className="active_status_green_color">Yes</td>}
+                  {data.featured == 0 && <td className="active_status_red_color">No</td>}
+                  {data.featured == "Null" && <td className="text-warning">Null</td>}
+
+                  {data.bestPick == 1 && <td className="active_status_green_color">Yes</td>}
+                  {data.bestPick == 0 && <td className="active_status_red_color">No</td>}
+                  {data.bestPick == "Null" && <td className="text-warning">Null</td>}
+
                   <td className="cutoff_text">{parse(data.description ? data.description.substring(0, 30) : " ")}</td>
                   <td className="small">{format(data.createdAt)}</td>
                   <td>

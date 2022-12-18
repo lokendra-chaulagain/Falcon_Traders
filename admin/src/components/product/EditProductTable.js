@@ -93,12 +93,10 @@ export default function EditProductTable({ categories, sizes, colors, singleProd
               dataURLKey="data_url"
               acceptType={["jpg", "png", "jpeg", "webp"]}>
               {({ imageList, onImageUpload, onImageUpdate, onImageRemove, isDragging, dragProps }) => (
-                // write your building UI
                 <div className="upload__image-wrapper  px-0  w-100">
                   <button
                     type="button"
                     className=" input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
-                    // style={isDragging ? { color: "red" } : null}
                     onClick={onImageUpload}
                     {...dragProps}>
                     Select New Banner

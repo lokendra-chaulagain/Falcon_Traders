@@ -10,7 +10,7 @@ const reviewSchema = new mongoose.Schema(
       type: String,
     },
 
-    image: {
+    position: {
       type: String,
     },
   },

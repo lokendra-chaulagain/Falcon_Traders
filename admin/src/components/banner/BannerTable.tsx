@@ -21,7 +21,6 @@ export default function BannerTable({ banners, deleteBanner, setIsUpdated }: any
               <th scope="col">S.N</th>
               <th scope="col">Image</th>
               <th scope="col">Title</th>
-              <th scope="col">Description</th>
               <th scope="col">Status</th>
               <th scope="col">Actions</th>
             </tr>
@@ -50,7 +49,6 @@ export default function BannerTable({ banners, deleteBanner, setIsUpdated }: any
                   </a>
                 </td>
                 <td>{banner.title}</td>
-                <td>{banner.description}</td>
                 {banner.status == 1 && <td className="active_status_green_color">Active</td>}
                 {banner.status == 0 && <td className="active_status_red_color">InActive</td>}
                 <td>

@@ -23,11 +23,22 @@ body {
 
 /* Navbar------------------------------- */
 
+.nav_link {
+  font-size: 20px !important;
+  font-weight: 500 !important ;
+  color: var(--color-dark-blue) !important;
+  transition: all 300ms ease-in-out !important;
+  cursor: pointer !important;
+}
+.nav_link:hover {
+  transform: translateX(3px);
+  color: var(--color-orange) !important;
+}
+
 /* Hero Banner Section---------------- */
-.hero_button{
+.hero_button {
   background-color: var(--color-orange) !important;
   color: var(--color-white) !important;
-  
 }
 .hero_banner_img_div {
   height: 100vh;
@@ -49,30 +60,29 @@ body {
   overflow: hidden;
 }
 
-.category_img_div_desc{
+.category_img_div_desc {
   position: absolute;
   bottom: -110px;
   transition: all 300ms ease-in-out;
   color: var(--color-white) !important;
 }
 
-.category_img_div:hover .category_img_div_desc{
+.category_img_div:hover .category_img_div_desc {
   transform: translateY(-350px);
 }
 
 /* Featured Product ----------------- */
-.featured_product_img{
+.featured_product_img {
   position: relative;
   height: 70vh;
   overflow: hidden !important;
 }
 
-.featured_product_img_desc{
+.featured_product_img_desc {
   position: absolute;
   color: var(--color-white);
   bottom: 0px;
   background-color: #0000 !important;
-
 }
 
 /* Trending Section---------------- */
@@ -160,12 +170,37 @@ body {
 }
 
 /* Contact page------------------ */
+.contact_page_wrapper{
+  margin-top: 120px !important;
+}
+
+.contact_heading_div {
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+}
+.contact_heading {
+  color: var(--color-dark-blue);
+}
+
+.contact_heading::after {
+  content: "";
+  display: block;
+  width: 190px;
+  height: 3px;
+  margin-top: 10px;
+  background: var(--color-dark-blue);
+}
+
 .shadow_box {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 80px ;
 }
 
 .contact_input {
   box-shadow: none !important;
+  color: var(--color-dark-blue) !important;
+  font-size: 20px !important;
 }
 .contact_input:focus {
   border-color: var(--color-yellow) !important;
@@ -173,12 +208,17 @@ body {
 
 .contact_social_icon {
   cursor: pointer;
-  transition: all 500ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  color: var(--color-dark-blue) ;
 }
 
 .contact_social_icon:hover {
   transform: translateY(-3px);
-  color: var(--color-yellow);
+  color: var(--color-orange);
+}
+
+.contact_text_area {
+  min-height: 200px !important;
 }
 
 /* Blog page ------------------------ */
@@ -239,6 +279,9 @@ body {
 }
 
 /* Product page--------------------- */
+.product_hero {
+  margin-bottom: 150px !important;
+}
 
 .product_banner_image_div {
   position: relative;
@@ -323,7 +366,12 @@ body {
 
 .fz18 {
   font-size: 18px;
-  color: var(--color-paragraph);
+  color: var(--color-paragraph) !important;
+}
+
+.fz18_dark_blue {
+  font-size: 18px;
+  color: var(--color-dark-blue) !important;
 }
 
 .para_color {
@@ -346,6 +394,6 @@ body {
   color: var(--color-yellow) !important;
 }
 
-.cp{
+.cp {
   cursor: pointer !important;
 }

@@ -26,11 +26,9 @@ const EditReviewTable = ({ singleReview, setIsUpdated }: any) => {
   const updateReview = async () => {
     try {
       const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/review/${id}`, handleAllField);
-      // 
       reset();
       updatedSuccess();
       setIsUpdated(2);
-      console.log("Update success");
     } catch (error) {
       console.log(error);
       somethingWentWrong();
@@ -43,22 +41,6 @@ const EditReviewTable = ({ singleReview, setIsUpdated }: any) => {
         onSubmit={handleSubmit(updateReview)}
         className="customCard p-3 overflow_hidden">
         <h4 className="text-center h4">Edit Client Review </h4>
-
-        <div className="row ">
-          <label
-            htmlFor="image"
-            className="form-label p_zero_first_cap h6 mt-3 ">
-            Image
-          </label>
-          <input
-            type="text"
-            className=" input_field_style form-control form-control-lg   border-0  rounded-0"
-            defaultValue={singleReview.image}
-            {...register("image", { required: "Image is required" })}
-            placeholder="Image"
-          />
-          {errors.image && <p className="form_hook_error">{`${errors.image.message}`}</p>}
-        </div>
 
         <div className="row ">
           <label

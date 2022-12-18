@@ -37,13 +37,10 @@ export default function AddProductTable({ categories, colors, sizes, setIsUpdate
     }
     try {
       const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/product`, formData);
-
-      // 
       setIsUpdated(1);
       handleClose();
       createSuccess();
       reset();
-      console.log("Form has been submitted");
     } catch (error) {
       console.log(error);
       somethingWentWrong();
@@ -90,7 +87,6 @@ export default function AddProductTable({ categories, colors, sizes, setIsUpdate
                   <button
                     type="button"
                     className=" input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
-                    // style={isDragging ? { color: "red" } : null}
                     onClick={onImageUpload}
                     {...dragProps}>
                     Click or Drop here
@@ -256,7 +252,7 @@ export default function AddProductTable({ categories, colors, sizes, setIsUpdate
             <label
               htmlFor="topSelling"
               className="form-label mt-3 p_zero_first_cap h6 ">
-              Top Selling Product
+            Trending Product
             </label>
 
             <select
@@ -266,7 +262,7 @@ export default function AddProductTable({ categories, colors, sizes, setIsUpdate
               <option
                 selected
                 value={"Null"}>
-                Select Top Selling Product Or Not
+                Select Trending Product Or Not
               </option>
               <option value="1">Yes</option>
               <option value="0">No</option>

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import BlogTable from "../../components/blog/BlogTable";
 import Header from "../../components/Header";
-import axios from "axios";
 import { MiscellaneousContext } from "../../../context/MiscellaneousContext";
 import Api from "../../../service/Api.js";
 let CallApi = new Api();

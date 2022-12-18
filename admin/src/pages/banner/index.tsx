@@ -2,14 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { MiscellaneousContext } from "../../../context/MiscellaneousContext";
 import BannerTable from "../../components/banner/BannerTable";
 import Header from "../../components/Header";
-import { useSession } from "next-auth/react";
 import Api from "../../../service/Api.js";
 let CallApi = new Api();
 
 export default function Banner() {
-  // const session = useSession();
-  // console.log(session);
-
   const { deleteSuccess, somethingWentWrong } = useContext(MiscellaneousContext);
   const [isUpdated, setIsUpdated] = useState(0);
   const [banners, setBanners] = useState([]);
@@ -23,6 +19,7 @@ export default function Banner() {
       console.log(error);
     }
   };
+
 
   useEffect(() => {
     fetchAllBanner();

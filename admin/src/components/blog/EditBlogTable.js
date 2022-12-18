@@ -38,6 +38,8 @@ const EditBlogTable = ({ singleBlog, id }) => {
     const formData = new FormData();
     formData.append("title", handleAllField.title);
     formData.append("category", handleAllField.category);
+    formData.append("featured", handleAllField.featured);
+    formData.append("bestPick", handleAllField.bestPick);
     formData.append("description", content);
     if (images) {
       formData.append("thumbnail", images[0].file, images[0].file.name);
@@ -45,7 +47,6 @@ const EditBlogTable = ({ singleBlog, id }) => {
 
     try {
       const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, formData);
-      // 
       updatedSuccess();
       reset();
       console.log("Form has been submitted");
@@ -94,12 +95,10 @@ const EditBlogTable = ({ singleBlog, id }) => {
               dataURLKey="data_url"
               acceptType={["jpg", "png", "jpeg", "webp"]}>
               {({ imageList, onImageUpload, onImageUpdate, onImageRemove, isDragging, dragProps }) => (
-                // write your building UI
                 <div className="upload__image-wrapper  px-0  w-100">
                   <button
                     type="button"
                     className=" input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
-                    // style={isDragging ? { color: "red" } : null}
                     onClick={onImageUpload}
                     {...dragProps}>
                     Select New Banner
@@ -142,7 +141,6 @@ const EditBlogTable = ({ singleBlog, id }) => {
             )}
           </div>
 
-
           <div className="row">
             <label
               htmlFor="category"
@@ -155,6 +153,50 @@ const EditBlogTable = ({ singleBlog, id }) => {
               placeholder="category"
             />
             {errors.category && <p className="form_hook_error">{`${errors.category.message}`}</p>}
+          </div>
+
+          <div className="row ">
+            <label
+              htmlFor="featured"
+              className="form-label mt-3 p_zero_first_cap h6 ">
+              Featured Blog
+            </label>
+
+            <select
+              {...register("featured", { required: "featured is required" })}
+              className="form-select input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
+              aria-label="Select featured">
+              <option
+                selected
+                value={"Null"}>
+                Select Featured or Not
+              </option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            {errors.featured && <p className="form_hook_error">{`${errors.featured.message}`}</p>}
+          </div>
+
+          <div className="row ">
+            <label
+              htmlFor="bestPick"
+              className="form-label mt-3 p_zero_first_cap h6 ">
+              Best Pick
+            </label>
+
+            <select
+              {...register("bestPick", { required: "bestPick is required" })}
+              className="form-select input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
+              aria-label="Select bestPick">
+              <option
+                selected
+                value={"Null"}>
+                Select bestPicB or Not
+              </option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            {errors.bestPick && <p className="form_hook_error">{`${errors.bestPick.message}`}</p>}
           </div>
 
           <div className="row">

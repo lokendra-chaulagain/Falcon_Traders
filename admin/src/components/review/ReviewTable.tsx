@@ -3,8 +3,6 @@ import Link from "next/link";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import AddReviewDialog from "./AddReviewDialog";
-import Image from "next/image";
-
 
 export default function ReviewTable({ deleteReview, reviews, setIsUpdated }: any) {
   return (
@@ -16,7 +14,7 @@ export default function ReviewTable({ deleteReview, reviews, setIsUpdated }: any
             <tr className="customPrimaryTxtColor">
               <th scope="col">S.N</th>
               <th scope="col">Name </th>
-              <th scope="col">Image</th>
+              <th scope="col">Position </th>
               <th scope="col">Description</th>
               <th scope="col">Actions</th>
             </tr>
@@ -27,23 +25,7 @@ export default function ReviewTable({ deleteReview, reviews, setIsUpdated }: any
                 <tr className="customPrimaryTxtColor custom_table_hover ">
                   <th scope="row">1</th>
                   <td>{review.name}</td>
-                  <td>
-                    <a
-                      className="d-flex "
-                      href={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}${review.image}`}>
-                      ​
-                      <div className="banner_table_image_div">
-                        <Image
-                          src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}${review.image}`}
-                          quality={50}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-1"
-                          alt="myimage"
-                        />
-                      </div>
-                    </a>
-                  </td>
+                  <td>{review.position}</td>
                   <td>{review.description}</td>
 
                   <td>
