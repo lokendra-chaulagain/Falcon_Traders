@@ -35,6 +35,14 @@ body {
   color: var(--color-orange) !important;
 }
 
+.nav_logo_img_div{
+  position: relative;
+  height: 5vh;
+  width: calc(10rem + 2vw);
+  cursor: pointer;
+
+}
+
 /* Hero Banner Section---------------- */
 .hero_button {
   background-color: var(--color-orange) !important;
@@ -88,8 +96,14 @@ body {
 /* Trending Section---------------- */
 .trending_image_div {
   position: relative;
-  height: 600px;
+  height: 500px;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+  .trending_image_div {
+    height: 350px;
+  }
 }
 
 /* Text image section  */
@@ -147,7 +161,7 @@ body {
 }
 
 /* Login page-----------------------------*/
-.login_wrapper{
+.login_wrapper {
   padding-top: 150px;
 }
 .register_input {
@@ -307,6 +321,16 @@ body {
 }
 
 /* Product page--------------------- */
+
+.search_input {
+  box-shadow: none !important;
+  font-size: 22px !important;
+}
+.search_input:focus {
+  border-color: var(--color-yellow) !important;
+  color: var(--color-dark-blue) !important;
+}
+
 .product_hero {
   margin-bottom: 150px !important;
 }
@@ -316,11 +340,16 @@ body {
   height: 90vh;
 }
 
+/* .product_search_div_wrapper {
+  width: 100% !important;
+} */
+
 .product_search_div {
   position: absolute;
-  bottom: -100px;
+  bottom: -120px;
   background-color: var(--color-white);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: calc(16rem + 35vw) !important;
 }
 
 .product_left_div {
@@ -329,7 +358,7 @@ body {
 
 .product_left_img_div {
   position: relative;
-  height: 60vh;
+  height: 65vh;
 }
 
 .quantity_input {
@@ -359,8 +388,11 @@ body {
   border-color: var(--color-yellow) !important;
 }
 
+/* Category page -------------*/
+
+
 /* About page------------------ */
-.about_logo_div{
+.about_logo_div {
   position: relative;
   height: 15vh;
   width: 100%;

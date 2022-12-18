@@ -1,36 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineShop } from "react-icons/ai";
 import { GrCircleInformation } from "react-icons/gr";
 import { CgEreader } from "react-icons/cg";
 import { BsTelephone } from "react-icons/bs";
 import Link from "next/link";
+import logo from "../../asset/logo.png";
+import Image from "next/image";
+import Api from "../../service/Api.js";
+let CallApi = new Api();
 
 export default function Navbar() {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        let res = await CallApi.fetchData(`category`);
+        res && setCategories(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchCategories();
+  }, []);
+
   return (
     <div>
       <nav className="navbar bg-light fixed-top py-4 px-5">
         <div className="container-fluid">
           <div>
             <select
-              className="form-select rounded-0 ps-4 pe-5"
+              className="form-select  search_input rounded-0 ps-4 pe-5"
               aria-label="Default select example ">
               <option
                 selected
                 className="">
                 Categories
               </option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              {categories &&
+                categories.map((category: any, index: any) => (
+                  <option
+                    key={index}
+                    value="1">
+                    <Link href={`/category/${category.url}`}>{category.name}</Link>
+                  </option>
+                ))}
             </select>
           </div>
 
-          <a
-            className="navbar-brand"
-            href="#">
-            Logo Here
-          </a>
+          <div className="nav_logo_img_div">
+            <Link href={"/"}>
+              <Image
+                className="rounded-2"
+                src={logo}
+                objectFit="cover"
+                layout="fill"
+                alt=""
+              />
+            </Link>
+          </div>
+
           <button
             className="navbar-toggler"
             type="button"
