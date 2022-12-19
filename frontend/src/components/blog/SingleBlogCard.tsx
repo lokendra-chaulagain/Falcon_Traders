@@ -23,7 +23,7 @@ export default function SingleBlogCard({ blogs }: any) {
             </div>
 
             <div className="col-12 col-md-7 ps-3   ps-md-4  pe-0  pe-md-5 d-flex flex-column justify-content-center mt-4 mt-md-0">
-              <h2 className="h2">{blog.title}</h2>
+              <h2 className="h2 dark_blue">{blog.title}</h2>
               <div className="d-flex align-items-center text-muted gap-4  ">
                 <p>Lokendra Chaulagain</p>
                 <p>
@@ -33,13 +33,13 @@ export default function SingleBlogCard({ blogs }: any) {
 
               <p className="fz18">{parse(blog.description)}</p>
 
-             <Link href={`/blog/${blog.url}`}>
-             <button
-                type="button"
-                className="btn btn-link text-start p-0 m-0 pb-4 pb-md-0">
-                Read More
-              </button>
-             </Link>
+              <Link href={`/blog/${blog.url}`}>
+                <button
+                  type="button"
+                  className="btn btn-link text-start p-0 m-0 pb-4 pb-md-0">
+                  Read More
+                </button>
+              </Link>
             </div>
           </div>
         ))}

@@ -5,8 +5,11 @@ import { useForm } from "react-hook-form";
 import Api from "../service/Api.js";
 let CallApi = new Api();
 import { MiscellaneousContext } from "../context/MiscellaneousContext.js";
+import Link from "next/link";
 
 export default function Register() {
+  const { somethingWentWrong, createSuccess } = useContext(MiscellaneousContext);
+
   const {
     register,
     handleSubmit,
@@ -22,7 +25,9 @@ export default function Register() {
       const res = await CallApi.storeData(`user/signup`, handleAllField);
       console.log(res);
       reset();
+      createSuccess();
     } catch (error) {
+      somethingWentWrong();
       console.log(error);
     }
   };
@@ -60,9 +65,9 @@ export default function Register() {
             type="password"
             className="form-control register_input rounded-1 py-3 "
             placeholder="Password"
-            {...register("password", { required: true })}
+            {...register("password", { required: true, minLength: 6 })}
           />
-          {errors.password && <span className="text-danger fw-semibold">Password is required</span>}
+          {errors.password && <span className="text-danger fw-semibold">Password is required of Length 6</span>}
         </div>
 
         <div className="w-100 my-2">
@@ -80,16 +85,16 @@ export default function Register() {
           <div className=" form-check">
             <input
               type="checkbox"
-              className="form-check-input"
+              className="form-check-input check_box rounded-0 cp"
               id="exampleCheck1"
             />
             <label
-              className="form-check-label"
+              className="form-check-label cp "
               htmlFor="exampleCheck1">
-              Check me out
+              Accept Terms & Conditions
             </label>
           </div>
-          <div className="">
+          <div className="forgot_pass">
             <p>Forgot Password?</p>
           </div>
         </div>
@@ -99,17 +104,22 @@ export default function Register() {
           className="btn  w-100 login_button rounded-1">
           Login
         </button>
-        <small className="py-3 text-muted">Already have an account ? Create One</small>
-        <small className="py-3 text-muted">OR</small>
+        <small className="pb-2 pt-3 text-muted">
+          Already have an account ?{" "}
+          <Link href={"login"}>
+            <span className="forgot_pass">Login</span>
+          </Link>
+        </small>
+        <small className="pb-2 text-muted ">OR</small>
 
         <div className="d-flex gap-2">
           <GrFacebookOption
             size={34}
-            className=" footer_icon_div2 rounded-circle  p-2"
+            className=" footer_icon_div2 rounded-circle cp  p-2"
           />
           <BsGoogle
             size={34}
-            className=" footer_icon_div3 rounded-circle  p-2"
+            className=" footer_icon_div3 rounded-circle cp  p-2"
           />
         </div>
       </form>

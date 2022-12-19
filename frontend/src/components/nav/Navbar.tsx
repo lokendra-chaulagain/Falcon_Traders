@@ -2,16 +2,22 @@ import React, { useEffect, useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineShop } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GrCircleInformation } from "react-icons/gr";
+import { BsInfoCircle } from "react-icons/bs";
 import { CgEreader } from "react-icons/cg";
 import { BsTelephone } from "react-icons/bs";
+import { FaCashRegister } from "react-icons/fa";
+
 import Link from "next/link";
 import logo from "../../asset/logo.png";
 import Image from "next/image";
 import Api from "../../service/Api.js";
+import { useRouter } from "next/router";
 let CallApi = new Api();
 
 export default function Navbar() {
+  const router = useRouter();
+  const path = router.route;
+
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchCategories = async () => {
@@ -74,14 +80,14 @@ export default function Navbar() {
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
-              <h5
-                className="offcanvas-title"
+              <h4
+                className="offcanvas-title dark_blue"
                 id="offcanvasNavbarLabel">
-                Offcanvas
-              </h5>
+                MENU
+              </h4>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close offcanvas_clear_icon"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
             </div>
@@ -92,7 +98,9 @@ export default function Navbar() {
                     href={"/"}
                     className="nav-link  "
                     aria-current="page">
-                    <div className="d-flex align-items-center gap-2 nav_link">
+                    <div
+                      className={`${path === "/" ? "nav_link_active d-flex align-items-center gap-2" : " d-flex align-items-center gap-2 nav_link"}`}
+                      data-bs-dismiss="offcanvas">
                       <FaHome size={24} /> Home
                     </div>
                   </Link>
@@ -103,7 +111,9 @@ export default function Navbar() {
                     href={"/product"}
                     className="nav-link  "
                     aria-current="page">
-                    <div className="d-flex align-items-center gap-2 nav_link">
+                    <div
+                      className={`${path === "/product" ? "nav_link_active d-flex align-items-center gap-2" : " d-flex align-items-center gap-2 nav_link"}`}
+                      data-bs-dismiss="offcanvas">
                       <AiOutlineShop size={24} /> Shop
                     </div>
                   </Link>
@@ -114,8 +124,10 @@ export default function Navbar() {
                     href={"/about"}
                     className="nav-link  "
                     aria-current="page">
-                    <div className="d-flex align-items-center gap-2 nav_link">
-                      <GrCircleInformation size={24} /> About
+                    <div
+                      className={`${path === "/about" ? "nav_link_active d-flex align-items-center gap-2" : " d-flex align-items-center gap-2 nav_link"}`}
+                      data-bs-dismiss="offcanvas">
+                      <BsInfoCircle size={24} /> About
                     </div>
                   </Link>
                 </li>
@@ -125,7 +137,9 @@ export default function Navbar() {
                     href={"/blog"}
                     className="nav-link  "
                     aria-current="page">
-                    <div className="d-flex align-items-center gap-2 nav_link">
+                    <div
+                      className={`${path === "/blog" ? "nav_link_active d-flex align-items-center gap-2" : " d-flex align-items-center gap-2 nav_link"}`}
+                      data-bs-dismiss="offcanvas">
                       <CgEreader size={24} /> Blog
                     </div>
                   </Link>
@@ -136,7 +150,9 @@ export default function Navbar() {
                     href={"/contact"}
                     className="nav-link  "
                     aria-current="page">
-                    <div className="d-flex align-items-center gap-2 nav_link">
+                    <div
+                      className={`${path === "/contact" ? "nav_link_active d-flex align-items-center gap-2" : " d-flex align-items-center gap-2 nav_link"}`}
+                      data-bs-dismiss="offcanvas">
                       <BsTelephone size={24} /> Contact
                     </div>
                   </Link>
@@ -147,19 +163,10 @@ export default function Navbar() {
                     href={"/register"}
                     className="nav-link  "
                     aria-current="page">
-                    <div className="d-flex align-items-center gap-2 nav_link">
-                      <BsTelephone size={24} /> Register
-                    </div>
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link
-                    href={"/login"}
-                    className="nav-link  "
-                    aria-current="page">
-                    <div className="d-flex align-items-center gap-2 nav_link">
-                      <BsTelephone size={24} /> login
+                    <div
+                      className={`${path === "/register" ? "nav_link_active d-flex align-items-center gap-2" : " d-flex align-items-center gap-2 nav_link"}`}
+                      data-bs-dismiss="offcanvas">
+                      <FaCashRegister size={24} /> Register
                     </div>
                   </Link>
                 </li>

@@ -81,7 +81,6 @@ function Index() {
       <HeroBanner />
       <div className="div px-2 px-md-5">
         <Category categories={categories} />
-
         <div>
           <h2 className="text-center mb-5 dark_blue">Trending Products</h2>
           <GlobalProductSection products={trendingProducts} />

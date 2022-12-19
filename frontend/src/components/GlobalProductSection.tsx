@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import img from "../asset/banner.png";
-import { BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
 
 export default function GlobalProductSection({ products }: any) {
@@ -11,7 +10,7 @@ export default function GlobalProductSection({ products }: any) {
         products.map((product: any, index: any) => (
           <div
             key={index}
-            className="product_item col-12 col-md-6  col-xl-4  col-xxl-3 mb-5">
+            className="product_item col-12 col-md-6  col-xl-4  col-xxl-3 mb-5 cp">
             <Link href={`/product/${product.url}`}>
               <div className="trending_image_div ">
                 <Image

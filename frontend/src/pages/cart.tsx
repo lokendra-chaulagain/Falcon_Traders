@@ -33,7 +33,17 @@ export default function Cart() {
                   </div>
                   <h4 className="h4 dark_blue">Product Name</h4>
                   <h4 className="h4 dark_blue">Price : 1000 /-</h4>
-                  <h4 className="h5 dark_blue">Quantity</h4>
+
+                  <div className=" d-flex align-items-center gap-3">
+                    <h4 className="h4 dark_blue">Quantity</h4>
+                    <input
+                      autoComplete="off"
+                      type="number"
+                      className="form-control text-center w-25 quantity_input rounded-0 "
+                      id="exampleFormControlInput1"
+                      placeholder="1"
+                    />
+                  </div>
                   <h4 className="h6 dark_blue">Size : </h4>
                   <h4 className="h6 dark_blue">Color : </h4>
                 </div>
@@ -61,7 +71,16 @@ export default function Cart() {
                   </div>
                   <h4 className="h4 dark_blue">Product Name</h4>
                   <h4 className="h4 dark_blue">Price : 1000 /-</h4>
-                  <h4 className="h5 dark_blue">Quantity</h4>
+                  <div className=" d-flex align-items-center gap-3">
+                    <h4 className="h4 dark_blue">Quantity</h4>
+                    <input
+                      autoComplete="off"
+                      type="number"
+                      className="form-control text-center w-25 quantity_input rounded-0 "
+                      id="exampleFormControlInput1"
+                      placeholder="1"
+                    />
+                  </div>
                   <h4 className="h6 dark_blue">Size : </h4>
                   <h4 className="h6 dark_blue">Color : </h4>
                 </div>
@@ -90,12 +109,28 @@ export default function Cart() {
                   </div>
                   <h4 className="h4 dark_blue">Product Name</h4>
                   <h4 className="h4 dark_blue">Price : 1000 /-</h4>
-                  <h4 className="h5 dark_blue">Quantity</h4>
+                  <div className=" d-flex align-items-center gap-3">
+                    <h4 className="h4 dark_blue">Quantity</h4>
+                    <input
+                      autoComplete="off"
+                      type="number"
+                      className="form-control text-center w-25 quantity_input rounded-0 "
+                      id="exampleFormControlInput1"
+                      placeholder="1"
+                    />
+                  </div>
                   <h4 className="h6 dark_blue">Size : </h4>
                   <h4 className="h6 dark_blue">Color : </h4>
                 </div>
               </div>
             </div>
+          </div>
+          <hr className="mt-5" />
+          <div className="d-flex flex-column align-items-start">
+            <h4 className="dark_blue h5 ">Subtotal= 1000 /-</h4>
+            <h4 className="dark_blue h5">Shipping =300 /-</h4>
+            <hr className="w-25" />
+            <h4 className="dark_blue h4">Total = 1300 /-</h4>
           </div>
         </div>
 

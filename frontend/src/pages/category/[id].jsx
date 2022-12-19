@@ -1,49 +1,13 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import banner from "../../asset/banner.png";
-import GlobalProductSection from "../../components/GlobalProductSection";
-import img from "../../asset/banner2.jpg";
-import { BsArrowRight } from "react-icons/bs";
 import { useRouter } from "next/router";
-import Api from "../../service/Api.js";
 import axios from "axios";
-let CallApi = new Api();
+import Link from "next/link";
 
 export default function Id() {
-  const trendings = [
-    {
-      img: img,
-      name: " Lorem, ipsum dolor.",
-    },
-
-    {
-      img: img,
-      name: " Lorem, ipsum dolor.",
-    },
-
-    {
-      img: img,
-      name: " Lorem, ipsum dolor.",
-    },
-    {
-      img: img,
-      name: " Lorem, ipsum dolor.",
-    },
-
-    {
-      img: img,
-      name: " Lorem, ipsum dolor.",
-    },
-
-    {
-      img: img,
-      name: " Lorem, ipsum dolor.",
-    },
-  ];
-
   const router = useRouter();
   const slug = router.query.id;
-  console.log(slug);
 
   const [category, setCategory] = useState([]);
   useEffect(() => {
@@ -74,7 +38,6 @@ export default function Id() {
     };
     fetchCategoryProduct();
   }, [slug]);
-  // console.log(catProducts)
 
   return (
     <div>
@@ -97,15 +60,18 @@ export default function Id() {
               <div
                 key={index}
                 className="trending_item col-12 col-md-6  col-xl-4  col-xxl-3 mb-5">
-                <div className="trending_image_div ">
-                  <Image
-                    className="rounded-1"
-                    src={banner}
-                    layout="fill"
-                    objectFit="cover"
-                    alt=""
-                  />
-                </div>
+                <Link href={`/product/${product.url}`}>
+                  <div className="trending_image_div ">
+                    <Image
+                      className="rounded-1"
+                      src={banner}
+                      layout="fill"
+                      objectFit="cover"
+                      alt=""
+                    />
+                  </div>
+                </Link>
+
                 <div className="d-flex align-items-center justify-content-between mt-3 px-2">
                   <p className="h6 dark_blue">{product.name}</p>
                   <p className="h6 color_yellow">Nrs {product.price} /-</p>

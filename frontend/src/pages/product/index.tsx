@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import banner from "../../asset/banner.png";
 import GlobalProductSection from "../../components/GlobalProductSection";
 import img from "../../asset/banner2.jpg";
-import { BsArrowRight } from "react-icons/bs";
 import Api from "../../service/Api.js";
+import Link from "next/link";
 let CallApi = new Api();
 
 export default function Product() {
@@ -20,7 +20,6 @@ export default function Product() {
     };
     fetchAllProduct();
   }, []);
-
   const randomProducts = products.slice(3, 7);
 
   return (
@@ -86,7 +85,7 @@ export default function Product() {
                 />
               </div>
               <div className="px-3   d-flex flex-column justify-content-center align-items-center pb-4">
-                <h2 className="h1 mt-3 px-5 text-center">New Designs for Wallpapers</h2>
+                <h2 className="h1 dark_blue mt-3 px-5 text-center">New Designs for Wallpapers</h2>
                 <p className="text-center fz18">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum sit mi egestas eu. In arcu, netus maecenas in dictum enim.</p>
                 <button
                   type="button"
@@ -104,15 +103,17 @@ export default function Product() {
                   <div
                     key={index}
                     className="trending_item col-12 col-md-6  col-xl-6 mb-5">
-                    <div className="trending_image_div ">
-                      <Image
-                        className="rounded-1"
-                        src={img}
-                        layout="fill"
-                        objectFit="cover"
-                        alt=""
-                      />
-                    </div>
+                    <Link href={`/product/${product.url}`}>
+                      <div className="trending_image_div ">
+                        <Image
+                          className="rounded-1"
+                          src={img}
+                          layout="fill"
+                          objectFit="cover"
+                          alt=""
+                        />
+                      </div>
+                    </Link>
                     <div className="d-flex align-items-center justify-content-between mt-3 px-2">
                       <p className="h6 dark_blue">{product.name}</p>
                       <p className="h6 color_yellow">Nrs 500 /-</p>

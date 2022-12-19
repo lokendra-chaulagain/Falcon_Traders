@@ -43,6 +43,7 @@ export default function Blog() {
     fetchFeaturedBlogs();
   }, []);
 
+
   const [bestPickBlogs, setBestPickBlogs] = useState<any>([]);
   useEffect(() => {
     const fetchBestPickBlogs = async () => {
@@ -70,7 +71,7 @@ export default function Blog() {
   }, []);
 
   return (
-    <div>
+    <div className="">
       <div className="blog_featured_article_div">
         <div className="featured_article_image_div">
           <Image
@@ -83,7 +84,7 @@ export default function Blog() {
           {featuredBlogs[0] && (
             <div className="featured_article_desc_div  py-5 px-5 ">
               <h4 className="h4 text-muted pt-5">FEATURED ARTICLE</h4>
-              <h1 className="h1 fw-bold">{featuredBlogs[0].title}</h1>
+              <h1 className="h1 dark_blue fw-bold">{featuredBlogs[0].title}</h1>
               <div className="d-flex align-items-center text-muted gap-5">
                 <p>Lokendra Chaulagain</p>
                 <p>
@@ -96,24 +97,26 @@ export default function Blog() {
         </div>
       </div>
 
-      <h1 className="text-center my-5">Best Picks</h1>
+      <h1 className="text-center dark_blue my-5">Best Picks</h1>
 
       <div className="container ">
         <SingleBlogCard blogs={bestPickBlogs} />
       </div>
 
-      <div className="second_featured_article_img_div">
-        <Image
-          src={banner}
-          layout="fill"
-          objectFit="cover"
-          alt=""
-        />
+      <div className="monkey">
+        <div className="second_featured_article_img_div">
+          <Image
+            src={banner}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+          />
+        </div>
 
         {featuredBlogs[1] && (
           <div className="second_featured_article_desc_div  py-5 px-5 ">
             <h4 className="h4 text-muted pt-5">FEATURED ARTICLE</h4>
-            <h1 className="h1 fw-bold">{featuredBlogs[1].title}</h1>
+            <h1 className="h1 dark_blue fw-bold">{featuredBlogs[1].title}</h1>
             <div className="d-flex align-items-center text-muted gap-5">
               <p>Lokendra Chaulagain</p>
               <p>
@@ -125,13 +128,13 @@ export default function Blog() {
         )}
       </div>
 
-      <div className="container my-5">
+      <div className="container my-5 ">
         <div className="tag_row row">
           <div className="col-12 col-md-10">
             <SingleBlogCard blogs={allBlog} />
           </div>
           <div className="col-2 d-none d-md-block">
-            <h4>TAGS</h4>
+            <h4 className="h4 dark_blue">TAGS</h4>
 
             {tags &&
               tags.map((tag: any, index: any) => (
@@ -139,13 +142,13 @@ export default function Blog() {
                   key={index}
                   className="form-check mb-3 ">
                   <input
-                    className="form-check-input display-none"
+                    className="form-check-input display-none select_color_input_custom"
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                   />
                   <label
-                    className="form-check-label"
+                    className="form-check-label ps-2 h6 dark_blue"
                     htmlFor="flexRadioDefault1">
                     {tag.name}
                   </label>
