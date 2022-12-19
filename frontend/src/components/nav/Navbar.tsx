@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineShop } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { GrCircleInformation } from "react-icons/gr";
 import { CgEreader } from "react-icons/cg";
 import { BsTelephone } from "react-icons/bs";
@@ -28,7 +29,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar bg-light fixed-top py-4 px-5">
         <div className="container-fluid">
-          <div>
+          <div className="d-none d-md-block">
             <select
               className="form-select  search_input rounded-0 ps-4 pe-5"
               aria-label="Default select example ">
@@ -48,10 +49,10 @@ export default function Navbar() {
             </select>
           </div>
 
-          <div className="nav_logo_img_div">
+          <div className="nav_logo_img_div  ">
             <Link href={"/"}>
               <Image
-                className="rounded-2"
+                className="rounded-2 "
                 src={logo}
                 objectFit="cover"
                 layout="fill"
@@ -60,14 +61,13 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button
-            className="navbar-toggler"
-            type="button"
+          <GiHamburgerMenu
+            className="nav_hamburger"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar">
-            <span className="navbar-toggler-icon">e</span>
-          </button>
+            size={30}
+          />
+
           <div
             className="offcanvas offcanvas-end"
             tab-index="-1"

@@ -6,26 +6,7 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 import { ImQuotesRight } from "react-icons/im";
 
-export default function Review() {
-  const reviews = [
-    {
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero molestias veritatis, recusandae illo facilis labore, commodi numquam adipisci ipsum ipsa, perspiciatis minima",
-      name: "Lokendra Chaulagain",
-      position: "CEO , Founder",
-    },
-
-    {
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero molestias veritatis, recusandae illo facilis labore, commodi numquam adipisci ipsum ipsa, perspiciatis minima",
-      name: "Lokendra Chaulagain",
-      position: "CEO , Founder",
-    },
-
-    {
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero molestias veritatis, recusandae illo facilis labore, commodi numquam adipisci ipsum ipsa, perspiciatis minima",
-      name: "Lokendra Chaulagain",
-      position: "CEO , Founder",
-    },
-  ];
+export default function Review({ reviews }: any) {
   return (
     <div className="review_wrapper">
       <div className="container">
@@ -47,7 +28,10 @@ export default function Review() {
                 <SwiperSlide key={index}>
                   <div>
                     <div className="d-flex justify-content-center pb-3 pt-4">
-                      <ImQuotesRight size={30} className="color_yellow" />
+                      <ImQuotesRight
+                        size={30}
+                        className="color_yellow"
+                      />
                     </div>
                     <div className="d-flex flex-column  align-items-center">
                       <p className="text-center fz18">{review.description}</p>

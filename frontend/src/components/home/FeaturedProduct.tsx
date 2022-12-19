@@ -1,11 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import img1 from "../../asset/banner1.jpg";
-import img2 from "../../asset/banner2.jpg";
 import img3 from "../../asset/banner1.jpg";
-import { RiFacebookFill } from "react-icons/ri";
+import Link from "next/link";
 
-export default function FeaturedProduct() {
+export default function FeaturedProduct({ products }: any) {
   return (
     <div className="featured_product_wrapper">
       <h2 className="text-center mb-5 dark_blue">
@@ -13,27 +11,31 @@ export default function FeaturedProduct() {
       </h2>
 
       <div className="row">
-        <div className="col-4">
-          <div className="featured_product_img ">
-            <Image
-              className="rounded-2"
-              src={img3}
-              objectFit="cover"
-              layout="fill"
-              alt=""
-            />
-            <div className="featured_product_img_desc py-3 d-flex align-items-center  ">
-              <h6>Awesome Chair</h6>
-              <div className="d-flex align-items-center gap-3">
-                <h6>Nrs. 1050 </h6>
-                <RiFacebookFill
-                  size={34}
-                  className=" footer_icon_div2 rounded-circle  p-2"
-                />
+        {products &&
+          products.map((product: any, index: any) => (
+            <div
+              key={index}
+              className="col-12 col-md-6 col-xl-4   px-2 pb-5">
+              <div className="featured_product_item ">
+                <div className="featured_product_item_desc py-4 w-100 d-flex justify-content-between px-3">
+                  <h5 className="  h5 m-0 ">{product.name}</h5>
+                  <h5 className="  h5 m-0 ">{product.name}</h5>
+                </div>
+
+                <Link href={`/product/${product.url}`}>
+                  <div className="feature_product_image_div ">
+                    <Image
+                      className="rounded-4"
+                      src={img3}
+                      layout="fill"
+                      objectFit="cover"
+                      alt="img"
+                    />
+                  </div>
+                </Link>
               </div>
             </div>
-          </div>
-        </div>
+          ))}
       </div>
     </div>
   );

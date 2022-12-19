@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import GlobalProductSection from "../components/GlobalProductSection";
 import Category from "../components/home/Category";
 import FeaturedProduct from "../components/home/FeaturedProduct";
 import HeroBanner from "../components/home/HeroBanner";
@@ -78,13 +79,17 @@ function Index() {
   return (
     <div>
       <HeroBanner />
-      <div className="div px-5">
-        <Category />
-        <Trending />
+      <div className="div px-2 px-md-5">
+        <Category categories={categories} />
+
+        <div>
+          <h2 className="text-center mb-5 dark_blue">Trending Products</h2>
+          <GlobalProductSection products={trendingProducts} />
+        </div>
         <TextImageSection />
-        <FeaturedProduct />
+        <FeaturedProduct products={featuredProducts} />
       </div>
-      <Review />
+      <Review reviews={reviews} />
     </div>
   );
 }
