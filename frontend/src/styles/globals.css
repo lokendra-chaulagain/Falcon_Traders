@@ -380,7 +380,6 @@ body {
   height: 700px;
 }
 
-
 @media only screen and (max-width: 1000px) {
   .single_blog_image_div {
     height: 500px;
@@ -392,8 +391,6 @@ body {
     height: 350px;
   }
 }
-
-
 
 .global_para {
   font-size: 19px !important;
@@ -530,17 +527,26 @@ body {
   border-color: var(--color-yellow) !important;
 }
 
-/* Category page -------------*/
-
 /* About page------------------ */
-.about_logo_div {
-  position: relative;
-  height: 15vh;
-  width: 100%;
+.about_page_wrapper {
+  padding-top: 150px;
 }
 
 .about_hero {
-  padding: 150px calc(40rem - 5vw) !important;
+  padding-bottom: 100px;
+  width: 50%;
+}
+
+@media only screen and (max-width: 800px) {
+  .about_hero {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .about_hero {
+    width: 100%;
+  }
 }
 
 .about_sec_1_right_img_div {
@@ -548,10 +554,22 @@ body {
   height: 50vh;
 }
 
+@media only screen and (max-width: 600px) {
+  .about_sec_1_right_img_div {
+    height: 28vh;
+  }
+}
+
 .about_swiper_img_div {
   position: relative;
   height: 60vh;
 }
+@media only screen and (max-width: 900px) {
+  .about_swiper_img_div {
+    height: 40vh;
+  }
+}
+
 .about_swiper_desc_div {
   position: absolute;
   bottom: 5px;
@@ -564,6 +582,23 @@ body {
   padding-bottom: 140px;
   padding-left: 100px;
   padding-right: 100px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .grey_bg {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .grey_bg {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+  }
 }
 
 .dark_blue {
@@ -586,6 +621,11 @@ body {
 
 .about_swiper_section {
   padding-left: 280px;
+}
+@media only screen and (max-width: 1200px) {
+  .about_swiper_section {
+    padding-left: 0px;
+  }
 }
 
 .color_white {
@@ -689,4 +729,9 @@ body {
 
 .forgot_pass:hover {
   color: var(--color-orange) !important;
+}
+
+.subscribe_button{
+  background-color: var(--color-orange) !important;
+  border-color: var(--color-orange) !important;
 }
