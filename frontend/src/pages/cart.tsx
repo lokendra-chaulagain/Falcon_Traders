@@ -4,127 +4,71 @@ import banner from "../asset/banner.png";
 import { MdOutlineClear } from "react-icons/md";
 
 export default function Cart() {
+  const products = [
+    {
+      name: "test1",
+    },
+
+    {
+      name: "test2",
+    },
+
+    {
+      name: "test3",
+    },
+  ];
   return (
     <div className="cart_page_wrapper">
       <div className="row px-2 px-md-5">
         <div className="col-12 col-md-6 col-xl-8">
-          <p className="h2 fw-bold dark_blue">Shopping Cart (3 items) </p>
+          <p className="h2 fw-bold dark_blue">Shopping Cart ({products && products.length} items) </p>
 
           <div className="row">
-            <div className=" col-lg-6 co-xl-4">
-              <div className=" p-0 card rounded-1 overflow-hidden mt-5">
-                <div className="cart_image_div">
-                  <Image
-                    className=""
-                    src={banner}
-                    objectFit="cover"
-                    layout="fill"
-                    alt=""
-                  />
-                </div>
+            {products &&
+              products.map((product: any, index: any) => (
+                <div
+                  key={index}
+                  className="col-12 col-sm-6 col-lg-6 col-xl-4">
+                  <div className=" p-0 card rounded-1 overflow-hidden mt-5">
+                    <div className="cart_image_div">
+                      <Image
+                        className=""
+                        src={banner}
+                        objectFit="cover"
+                        layout="fill"
+                        alt=""
+                      />
+                    </div>
 
-                <div className="cart_desc px-3 pb-3">
-                  <div className="d-flex justify-content-end mt-2 ">
-                    <MdOutlineClear
-                      type="button"
-                      className="cp dark_blue"
-                      size={32}
-                    />
-                  </div>
-                  <h4 className="h4 dark_blue">Product Name</h4>
-                  <h4 className="h4 dark_blue">Price : 1000 /-</h4>
+                    <div className="cart_desc px-3 pb-3">
+                      <div className="d-flex justify-content-end mt-2 ">
+                        <MdOutlineClear
+                          type="button"
+                          className="cp dark_blue"
+                          size={26}
+                        />
+                      </div>
+                      <h4 className="h6 dark_blue">Product Name</h4>
+                      <h4 className="h6 dark_blue">Price : 1000 /-</h4>
 
-                  <div className=" d-flex align-items-center gap-3">
-                    <h4 className="h4 dark_blue">Quantity</h4>
-                    <input
-                      autoComplete="off"
-                      type="number"
-                      className="form-control text-center w-25 quantity_input rounded-0 "
-                      id="exampleFormControlInput1"
-                      placeholder="1"
-                    />
+                      <div className=" d-flex align-items-center gap-3">
+                        <h4 className="h6 dark_blue">Quantity</h4>
+                        <input
+                          autoComplete="off"
+                          type="number"
+                          className="form-control text-center w-25 quantity_input rounded-0 "
+                          id="exampleFormControlInput1"
+                          placeholder="1"
+                        />
+                      </div>
+                      <h4 className="h6 dark_blue">Size : </h4>
+                      <h4 className="h6 dark_blue">Color : </h4>
+                    </div>
                   </div>
-                  <h4 className="h6 dark_blue">Size : </h4>
-                  <h4 className="h6 dark_blue">Color : </h4>
                 </div>
-              </div>
-            </div>
-            <div className=" col-lg-6 co-xl-4">
-              <div className="p-0 card rounded-1 overflow-hidden mt-5">
-                <div className="cart_image_div">
-                  <Image
-                    className=""
-                    src={banner}
-                    objectFit="cover"
-                    layout="fill"
-                    alt=""
-                  />
-                </div>
-
-                <div className="cart_desc px-3 pb-3">
-                  <div className="d-flex justify-content-end mt-2 ">
-                    <MdOutlineClear
-                      type="button"
-                      className="cp dark_blue"
-                      size={32}
-                    />
-                  </div>
-                  <h4 className="h4 dark_blue">Product Name</h4>
-                  <h4 className="h4 dark_blue">Price : 1000 /-</h4>
-                  <div className=" d-flex align-items-center gap-3">
-                    <h4 className="h4 dark_blue">Quantity</h4>
-                    <input
-                      autoComplete="off"
-                      type="number"
-                      className="form-control text-center w-25 quantity_input rounded-0 "
-                      id="exampleFormControlInput1"
-                      placeholder="1"
-                    />
-                  </div>
-                  <h4 className="h6 dark_blue">Size : </h4>
-                  <h4 className="h6 dark_blue">Color : </h4>
-                </div>
-              </div>
-            </div>
-
-            <div className=" col-lg-6 co-xl-4">
-              <div className=" p-0 card rounded-1 overflow-hidden mt-5">
-                <div className="cart_image_div">
-                  <Image
-                    className=""
-                    src={banner}
-                    objectFit="cover"
-                    layout="fill"
-                    alt=""
-                  />
-                </div>
-
-                <div className="cart_desc px-3 pb-3">
-                  <div className="d-flex justify-content-end mt-2 ">
-                    <MdOutlineClear
-                      type="button"
-                      className="cp dark_blue"
-                      size={32}
-                    />
-                  </div>
-                  <h4 className="h4 dark_blue">Product Name</h4>
-                  <h4 className="h4 dark_blue">Price : 1000 /-</h4>
-                  <div className=" d-flex align-items-center gap-3">
-                    <h4 className="h4 dark_blue">Quantity</h4>
-                    <input
-                      autoComplete="off"
-                      type="number"
-                      className="form-control text-center w-25 quantity_input rounded-0 "
-                      id="exampleFormControlInput1"
-                      placeholder="1"
-                    />
-                  </div>
-                  <h4 className="h6 dark_blue">Size : </h4>
-                  <h4 className="h6 dark_blue">Color : </h4>
-                </div>
-              </div>
-            </div>
+              ))}
           </div>
+
           <hr className="mt-5" />
           <div className="d-flex flex-column align-items-start">
             <h4 className="dark_blue h5 ">Subtotal= 1000 /-</h4>

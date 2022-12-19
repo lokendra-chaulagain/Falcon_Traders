@@ -12,13 +12,14 @@ import Image from "next/image";
 import img from "../../asset/banner.png";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Link from "next/link";
 
 export default function ProductSlug() {
   const router = useRouter();
   const slug = router.query.slug;
 
-  const [singleProduct, setSingleProduct] = useState<any>({});
-  const [singleProductId, setSingleProductId] = useState<any>({});
+  const [singleProduct, setSingleProduct] = useState({});
+  const [singleProductId, setSingleProductId] = useState({});
   useEffect(() => {
     const fetchSingleProduct = async () => {
       try {
@@ -32,7 +33,7 @@ export default function ProductSlug() {
     fetchSingleProduct();
   }, [slug]);
 
-  const [singleCategoryUrl, setSingleCategoryUrl] = useState<any>([]);
+  const [singleCategoryUrl, setSingleCategoryUrl] = useState([]);
   useEffect(() => {
     const fetchSingleCategory = async () => {
       try {
@@ -100,7 +101,7 @@ export default function ProductSlug() {
                 <h5 className="h5 dark_blue">Colors</h5>
                 {singleProduct &&
                   singleProduct.color &&
-                  singleProduct.color[0].split(",").map((color: any, index: any) => (
+                  singleProduct.color[0].split(",").map((color, index) => (
                     <div
                       key={index}
                       className="form-check form-check-inline  ">
@@ -123,7 +124,7 @@ export default function ProductSlug() {
                 <h5 className="h5 dark_blue">Sizes</h5>
                 {singleProduct &&
                   singleProduct.size &&
-                  singleProduct.size[0].split(",").map((size: any, index: any) => (
+                  singleProduct.size[0].split(",").map((size, index) => (
                     <div
                       key={index}
                       className="form-check form-check-inline ">
@@ -157,11 +158,13 @@ export default function ProductSlug() {
               </div>
 
               <div className="col-12 col-sm-6 mt-4 mt-sm-0 ">
-                <button
-                  type="button"
-                  className="btn add_cart_btn rounded-1 fw-semibold">
-                  Add to Cart
-                </button>
+                <Link href={"/cart"}>
+                  <button
+                    type="button"
+                    className="btn add_cart_btn rounded-1 fw-semibold">
+                    Add to Cart
+                  </button>
+                </Link>
               </div>
             </div>
 

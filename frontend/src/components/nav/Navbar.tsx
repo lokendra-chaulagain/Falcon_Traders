@@ -6,7 +6,8 @@ import { BsInfoCircle } from "react-icons/bs";
 import { CgEreader } from "react-icons/cg";
 import { BsTelephone } from "react-icons/bs";
 import { FaCashRegister } from "react-icons/fa";
-
+import { BsCartFill } from "react-icons/bs";
+import { BiUserCircle } from "react-icons/bi";
 import Link from "next/link";
 import logo from "../../asset/logo.png";
 import Image from "next/image";
@@ -36,23 +37,25 @@ export default function Navbar() {
       <nav className="navbar bg-light fixed-top py-4 px-5">
         <div className="container-fluid">
           <div className="d-none d-md-block">
-            <select
-              className="form-select  search_input rounded-0 ps-4 pe-5"
-              aria-label="Default select example ">
-              <option
-                selected
-                className="">
+            <div className="dropdown">
+              <button
+                className="btn rounded-0 dropdown-toggle btn-lg px-5 nav_dropdown"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Categories
-              </option>
-              {categories &&
-                categories.map((category: any, index: any) => (
-                  <option
-                    key={index}
-                    value="1">
-                    <Link href={`/category/${category.url}`}>{category.name}</Link>
-                  </option>
-                ))}
-            </select>
+              </button>
+              <ul className="dropdown-menu custom_menu_dropdown rounded-0  ">
+                {categories &&
+                  categories.map((category: any, index: any) => (
+                    <Link
+                      key={index}
+                      href={`/category/${category.url}`}>
+                      <li className="py-2 ps-3 custom_menu_dropdown_item">{category.name}</li>
+                    </Link>
+                  ))}
+              </ul>
+            </div>
           </div>
 
           <div className="nav_logo_img_div  ">
@@ -67,12 +70,28 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <GiHamburgerMenu
-            className="nav_hamburger"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            size={30}
-          />
+          <div className="d-flex align-items-center gap-4">
+            <Link href={"/cart"}>
+              <BsCartFill
+                className="cp color_orange"
+                size={30}
+              />
+            </Link>
+
+            <Link href={"/register"}>
+              <BiUserCircle
+                className="cp color_orange"
+                size={30}
+              />
+            </Link>
+
+            <GiHamburgerMenu
+              className="nav_hamburger"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              size={30}
+            />
+          </div>
 
           <div
             className="offcanvas offcanvas-end"
