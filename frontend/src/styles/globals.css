@@ -380,6 +380,21 @@ body {
   height: 700px;
 }
 
+
+@media only screen and (max-width: 1000px) {
+  .single_blog_image_div {
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .single_blog_image_div {
+    height: 350px;
+  }
+}
+
+
+
 .global_para {
   font-size: 19px !important;
   line-height: 35px;

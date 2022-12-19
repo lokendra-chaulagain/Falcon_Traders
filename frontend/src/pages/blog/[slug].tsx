@@ -54,7 +54,7 @@ export default function Slug() {
           </div>
 
           <div className="px-2">
-            <h1 className="text-center my-4">{singleBlog.title}</h1>
+            <h1 className="text-center my-4 dark_blue">{singleBlog.title}</h1>
             <div className="d-flex align-items-center justify-content-center gap-5">
               <p>Lokendra Chaulagain</p>
               <p>
@@ -79,7 +79,7 @@ export default function Slug() {
                 </div>
 
                 <div className="col">
-                  <h2 className="h2 text-center text-lg-start">Arthur Black</h2>
+                  <h2 className="h2 text-center text-lg-start dark_blue">Arthur Black</h2>
                   <p className="text-muted text-center text-lg-start">@arthurblack</p>
                   <p className="global_para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus necessitatibus adipisci quae, sint a suscipit maxime obcaecati provident accusamus ipsum veniam rerum laboriosam est, delectus soluta ad ab autem facere! Deleniti beatae accusamus exercitationem, voluptatum reprehenderit doloribus nulla hic! Aut.</p>
                 </div>
