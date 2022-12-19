@@ -36,7 +36,7 @@ export default function Register() {
     <div className="login_wrapper d-flex align-items-center justify-content-center container">
       <form
         onSubmit={handleSubmit(registerUser)}
-        className="d-flex flex-column align-items-center w-50">
+        className="d-flex flex-column align-items-center login_form_box">
         <h1 className="h1 pb-2 dark_blue fw-bold">Create an account </h1>
         <p className="fz18">Signup to get the most out of Falcon Traders</p>
 

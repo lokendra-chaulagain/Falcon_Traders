@@ -261,7 +261,6 @@ body {
 
 .login_input_div {
   border: 1px solid rgba(128, 128, 128, 0.356);
-  
 }
 
 .login_input {
@@ -280,6 +279,22 @@ body {
   font-weight: 500 !important;
   background-color: var(--color-yellow) !important;
   color: var(--color-white) !important;
+}
+
+.login_form_box {
+  width: 50% !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  .login_form_box {
+    width: 80% !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .login_form_box {
+    width: 100% !important;
+  }
 }
 
 /* Contact page------------------ */
