@@ -33,7 +33,6 @@ export default function EditBannerDialog({ singleBanner, setIsUpdated, id }) {
     const formData = new FormData();
     formData.append("title", handleAllField.title);
     formData.append("status", handleAllField.status);
-    formData.append("description", handleAllField.description);
     if (images) {
       formData.append("thumbnail", images[0].file, images[0].file.name);
     }
@@ -82,12 +81,10 @@ export default function EditBannerDialog({ singleBanner, setIsUpdated, id }) {
                 dataURLKey="data_url"
                 acceptType={["jpg", "png", "jpeg", "webp"]}>
                 {({ imageList, onImageUpload, onImageUpdate, onImageRemove, isDragging, dragProps }) => (
-                  // write your building UI
                   <div className="upload__image-wrapper  px-0  w-100">
                     <button
                       type="button"
                       className=" input_field_style form-control form-control-lg mb-0  border-0  rounded-0"
-                      // style={isDragging ? { color: "red" } : null}
                       onClick={onImageUpload}
                       {...dragProps}>
                       Select New Banner
@@ -145,21 +142,7 @@ export default function EditBannerDialog({ singleBanner, setIsUpdated, id }) {
               {errors.title && <p className="form_hook_error">{`${errors.title.message}`}</p>}
             </div>
 
-            <div className="row ">
-              <label
-                htmlFor="description"
-                className="form-label px-0 mt-2 h6   ">
-                Description
-              </label>
-              <input
-                autoComplete="off"
-                className=" input_field_style form-control form-control-lg  px-2  border-0  rounded-0"
-                {...register("description", { required: "description is required" })}
-                placeholder="Description"
-              />
-              {errors.description && <p className="form_hook_error">{`${errors.description.message}`}</p>}
-            </div>
-
+   
             <div className="row">
               <label
                 htmlFor="description"

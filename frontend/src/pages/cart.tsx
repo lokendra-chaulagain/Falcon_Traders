@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import banner from "../asset/banner.png";
 import { MdOutlineClear } from "react-icons/md";
+import Link from "next/link";
 
 export default function Cart() {
+  const demo = "https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671595876/gem/2022-12-21T04-11-11.778Z.jpg";
   const products = [
     {
       name: "test1",
@@ -33,7 +34,7 @@ export default function Cart() {
                     <div className="cart_image_div">
                       <Image
                         className=""
-                        src={banner}
+                        src={demo}
                         objectFit="cover"
                         layout="fill"
                         alt=""
@@ -161,6 +162,13 @@ export default function Cart() {
             </button>
           </div>
         </div>
+        <hr className="mt-5" />
+        <Link href={"/product"}>
+          <h5 className="dark_blue cp">
+            {" "}
+            <span className="h3">←</span> Continue Shopping
+          </h5>
+        </Link>
       </div>
     </div>
   );

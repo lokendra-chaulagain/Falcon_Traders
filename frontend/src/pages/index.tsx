@@ -5,22 +5,21 @@ import FeaturedProduct from "../components/home/FeaturedProduct";
 import HeroBanner from "../components/home/HeroBanner";
 import Review from "../components/home/Review";
 import TextImageSection from "../components/home/TextImageSection";
-import Trending from "../components/home/Trending";
 import Api from "../service/Api.js";
 let CallApi = new Api();
 
 function Index() {
-  const [banners, setBanners] = useState([]);
+  const [banner, setBanner] = useState([]);
   useEffect(() => {
-    const fetchAllBanner = async () => {
+    const fetchBanner = async () => {
       try {
         let res = await CallApi.fetchData(`banner`);
-        res && setBanners(res);
+        res && setBanner(res[0]);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchAllBanner();
+    fetchBanner();
   }, []);
 
   const [trendingProducts, setTrendingProducts] = useState([]);
@@ -78,7 +77,7 @@ function Index() {
 
   return (
     <div>
-      <HeroBanner />
+      <HeroBanner banner={banner} />
       <div className="div px-2 px-md-5">
         <Category categories={categories} />
         <div>

@@ -18,6 +18,6 @@ export const MiscellaneousContextProvider = ({ children }) => {
   const updatedSuccess = () => toast.success("Successfully Updated");
   const deleteSuccess = () => toast.success("Successfully Deleted");
   const somethingWentWrong = () => toast.error("Something Went Wrong !");
-
-  return <MiscellaneousContext.Provider value={{ updatedSuccess,msgSendSuccess, loginSuccess, createSuccess, deleteSuccess, somethingWentWrong, handleClickOpen, handleClose, open }}>{children}</MiscellaneousContext.Provider>;
+  const addedCart = () => toast.success("Product added to Cart");
+  return <MiscellaneousContext.Provider value={{ updatedSuccess,msgSendSuccess, addedCart,loginSuccess, createSuccess, deleteSuccess, somethingWentWrong, handleClickOpen, handleClose, open }}>{children}</MiscellaneousContext.Provider>;
 };

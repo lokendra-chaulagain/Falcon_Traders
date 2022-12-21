@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { RiFacebookFill } from "react-icons/ri";
 import { AiFillInstagram } from "react-icons/ai";
-import { BsArrowRight } from "react-icons/bs";
 import GlobalProductSection from "../../components/GlobalProductSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import Image from "next/image";
-import img from "../../asset/banner.png";
 import { useRouter } from "next/router";
-import axios from "axios";
-import Link from "next/link";
+import axios from "axios";;
+import { MiscellaneousContext } from "../../context/MiscellaneousContext";
 
 export default function ProductSlug() {
+  const { addedCart } = useContext(MiscellaneousContext);
   const router = useRouter();
   const slug = router.query.slug;
 
@@ -63,6 +62,11 @@ export default function ProductSlug() {
     fetchCategoryProduct();
   }, [singleCategoryUrl]);
 
+  const addToCart = async () => {
+    addedCart();
+    router.push("/cart");
+  };
+
   return (
     <div className="single_product_page_wrapper px-0 ">
       <div className="row px-2 px-sm-5  ">
@@ -72,17 +76,17 @@ export default function ProductSlug() {
             loop={true}
             modules={[Navigation]}
             className="mySwiper">
-            <SwiperSlide className="">
+            {singleProduct&&<SwiperSlide className="">
               <div className="single_product_swiper_img_div">
                 <Image
                   className="rounded-3"
-                  src={img}
+                  src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${singleProduct.image}`}
                   layout="fill"
                   objectFit="cover"
                   alt=""
                 />
               </div>
-            </SwiperSlide>
+            </SwiperSlide>}
           </Swiper>
         </div>
 
@@ -158,13 +162,12 @@ export default function ProductSlug() {
               </div>
 
               <div className="col-12 col-sm-6 mt-4 mt-sm-0 ">
-                <Link href={"/cart"}>
-                  <button
-                    type="button"
-                    className="btn add_cart_btn rounded-1 fw-semibold">
-                    Add to Cart
-                  </button>
-                </Link>
+                <button
+                  onClick={addToCart}
+                  type="button"
+                  className="btn add_cart_btn rounded-1 fw-semibold">
+                  Add to Cart
+                </button>
               </div>
             </div>
 

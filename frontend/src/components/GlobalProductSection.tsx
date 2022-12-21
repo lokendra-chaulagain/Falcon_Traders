@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import img from "../asset/banner.png";
 import Link from "next/link";
 
 export default function GlobalProductSection({ products }: any) {
@@ -15,7 +14,7 @@ export default function GlobalProductSection({ products }: any) {
               <div className="trending_image_div ">
                 <Image
                   className="rounded-1"
-                  src={img}
+                  src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${product.image}`}
                   layout="fill"
                   objectFit="cover"
                   alt=""
@@ -25,7 +24,7 @@ export default function GlobalProductSection({ products }: any) {
 
             <div className="d-flex align-items-center justify-content-between mt-3 px-2">
               <p className="h6 dark_blue">{product.name}</p>
-              <p className="h6 color_yellow">Nrs 500 /-</p>
+              <p className="h6 color_yellow">Nrs {product.price || "Not Mentioned"} /-</p>
             </div>
           </div>
         ))}

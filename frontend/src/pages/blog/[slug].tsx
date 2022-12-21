@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import demo from "../../asset/banner3.jpg";
 import Api from "../../service/Api.js";
 let CallApi = new Api();
 import { format } from "timeago.js";
 import parse from "html-react-parser";
 
 export default function Slug() {
+  const profile = "https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671598841/fa_yrzbzr.jpg";
+
   const router = useRouter();
   const slug = router.query.slug;
 
@@ -46,7 +47,7 @@ export default function Slug() {
         <div>
           <div className="single_blog_image_div">
             <Image
-              src={demo}
+              src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${singleBlog.image}`}
               layout="fill"
               objectFit="cover"
               alt=""
@@ -70,7 +71,7 @@ export default function Slug() {
                   <div className="author_image_div">
                     <Image
                       className="rounded-circle"
-                      src={demo}
+                      src={profile}
                       layout="fill"
                       objectFit="cover"
                       alt=""

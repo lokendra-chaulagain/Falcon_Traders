@@ -6,8 +6,10 @@ import Api from "../service/Api.js";
 let CallApi = new Api();
 import { MiscellaneousContext } from "../context/MiscellaneousContext.js";
 import Link from "next/link";
+import { useRouter } from "next/router.js";
 
 export default function Register() {
+  const router = useRouter();
   const { somethingWentWrong, createSuccess } = useContext(MiscellaneousContext);
 
   const {
@@ -23,9 +25,9 @@ export default function Register() {
   const registerUser = async () => {
     try {
       const res = await CallApi.storeData(`user/signup`, handleAllField);
-      console.log(res);
-      reset();
       createSuccess();
+      router.push("/product");
+      reset();
     } catch (error) {
       somethingWentWrong();
       console.log(error);

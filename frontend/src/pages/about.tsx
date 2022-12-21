@@ -1,14 +1,33 @@
 import Image from "next/image";
-import React from "react";
-import banner from "../asset/banner.png";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import { BsArrowRight } from "react-icons/bs";
+import Api from "../service/Api.js";
+import Link from "next/link.js";
+let CallApi = new Api();
 
 export default function About() {
+  const banner1 = "https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671598674/banner4_qap2db.jpg";
+  const banner2 = "https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671598841/fa_yrzbzr.jpg";
+  const banner3 = "https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671598836/banner3_i7nnxs.jpg";
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchAllProduct = async () => {
+      try {
+        let res = await CallApi.fetchData(`product`);
+        res && setProducts(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAllProduct();
+  }, []);
+
   return (
     <div className="about_page_wrapper">
       <div className="div d-flex align-items-center justify-content-center">
@@ -35,7 +54,7 @@ export default function About() {
           <div className="order-1 order-xl-2 col-lg-12 col-xl-8 p-0   ">
             <div className="about_sec_1_right_img_div">
               <Image
-                src={banner}
+                src={banner1}
                 layout="fill"
                 objectFit="cover"
                 alt=""
@@ -49,7 +68,7 @@ export default function About() {
           <div className="row  col-12 col-xl-8  ">
             <div className="about_sec_1_right_img_div ">
               <Image
-                src={banner}
+                src={banner2}
                 layout="fill"
                 objectFit="cover"
                 alt=""
@@ -70,7 +89,7 @@ export default function About() {
           <div className=" col-lg-12 col-xl-8 p-0 pe-0 pe-xl-3">
             <div className="about_sec_1_right_img_div">
               <Image
-                src={banner}
+                src={banner3}
                 layout="fill"
                 objectFit="cover"
                 alt=""
@@ -94,64 +113,55 @@ export default function About() {
           <p className="fz18 pe-5 mb-4 p-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut venenatis, et fermentum eget urna. Turpis sodales massa mi est. Lectus tincidunt maecenas auctor purus, egestas ornare dui. Cursus enim turpis id arcu sagittis dignissim quam justo. Eget neque mus semper ac dictumst.</p>
 
           <Swiper
-            slidesPerView={3}
-            spaceBetween={30}
-            slidesPerGroup={3}
+            slidesPerView={1}
+            spaceBetween={10}
+            slidesPerGroup={1}
+            freeMode={true}
             loop={true}
+            navigation={true}
             loopFillGroupWithBlank={true}
             pagination={{
               clickable: true,
             }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
+            modules={[Navigation]}
+            breakpoints={{
+              1650: {
+                slidesPerView: 3,
+                spaceBetween: 5,
+              },
+              1300: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+              700: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              500: {
+                slidesPerView: 1,
+              },
+            }}
             className="mySwiper">
-            <SwiperSlide>
-              <div className="about_swiper_img_div">
-                <Image
-                  src={banner}
-                  layout="fill"
-                  objectFit="cover"
-                  alt=""
-                />
+            {products &&
+              products.map((product: any, index: any) => (
+                <SwiperSlide key={index}>
+                  <Link href={`/product/${product.url}`}>
+                    <div className="about_swiper_img_div">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${product.image}`}
+                        layout="fill"
+                        objectFit="cover"
+                        alt=""
+                      />
 
-                <div className="about_swiper_desc_div color_white d-flex align-items-center gap-2">
-                  <span> Shop More</span>
-                  <BsArrowRight size={21} />
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="about_swiper_img_div">
-                <Image
-                  src={banner}
-                  layout="fill"
-                  objectFit="cover"
-                  alt=""
-                />
-
-                <div className="about_swiper_desc_div color_white d-flex align-items-center gap-2">
-                  <span> Shop More</span>
-                  <BsArrowRight size={21} />
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="about_swiper_img_div">
-                <Image
-                  src={banner}
-                  layout="fill"
-                  objectFit="cover"
-                  alt=""
-                />
-
-                <div className="about_swiper_desc_div color_white d-flex align-items-center gap-2">
-                  <span> Shop More</span>
-                  <BsArrowRight size={21} />
-                </div>
-              </div>
-            </SwiperSlide>
+                      <div className="about_swiper_desc_div color_white d-flex align-items-center gap-2">
+                        <span> Shop More</span>
+                        <BsArrowRight size={21} />
+                      </div>
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
           </Swiper>
         </div>
       </div>

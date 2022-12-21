@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import banner from "../../asset/banner.png";
 import SingleBlogCard from "../../components/blog/SingleBlogCard";
 import Api from "../../service/Api.js";
 let CallApi = new Api();
@@ -8,6 +7,7 @@ import { format } from "timeago.js";
 import parse from "html-react-parser";
 
 export default function Blog() {
+  const banner = "https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671598841/fa_yrzbzr.jpg";
   const tags = [
     {
       name: "technology",
@@ -42,7 +42,6 @@ export default function Blog() {
     };
     fetchFeaturedBlogs();
   }, []);
-
 
   const [bestPickBlogs, setBestPickBlogs] = useState<any>([]);
   useEffect(() => {

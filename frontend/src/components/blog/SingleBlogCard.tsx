@@ -15,7 +15,7 @@ export default function SingleBlogCard({ blogs }: any) {
             className="single_blog_card mb-5 row ">
             <div className=" col-12  col-md-5 single_blog_img_div">
               <Image
-                src={banner}
+                src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${blog.image}`}
                 layout="fill"
                 objectFit="cover"
                 alt=""

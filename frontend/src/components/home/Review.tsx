@@ -2,8 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper";
+import "swiper/css/navigation";
+import { FreeMode, Navigation, Autoplay } from "swiper";
 import { ImQuotesRight } from "react-icons/im";
 
 export default function Review({ reviews }: any) {
@@ -14,14 +14,37 @@ export default function Review({ reviews }: any) {
 
         <div className="row">
           <Swiper
-            slidesPerView={3}
-            spaceBetween={30}
+            slidesPerView={1}
+            spaceBetween={10}
+            slidesPerGroup={1}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: true,
+            }}
             freeMode={true}
             loop={true}
-            //   pagination={{
-            //     clickable: true,
-            //   }}
-            modules={[FreeMode, Pagination]}
+            loopFillGroupWithBlank={true}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Autoplay, Navigation, FreeMode]}
+            breakpoints={{
+              1650: {
+                slidesPerView: 3,
+                spaceBetween: 5,
+              },
+              1300: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+              700: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              500: {
+                slidesPerView: 1,
+              },
+            }}
             className="mySwiper">
             {reviews &&
               reviews.map((review: any, index: any) => (

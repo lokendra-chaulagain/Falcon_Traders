@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import banner from "../../asset/banner.png";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
@@ -42,14 +41,16 @@ export default function Id() {
   return (
     <div>
       <div className="">
-        <div className="product_banner_image_div">
-          <Image
-            src={banner}
-            layout="fill"
-            objectFit="cover"
-            alt=""
-          />
-        </div>
+        {category && (
+          <div className="product_banner_image_div">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${category.image}`}
+              layout="fill"
+              objectFit="cover"
+              alt=""
+            />
+          </div>
+        )}
       </div>
 
       <div className="px-2 px-sm-5">
@@ -64,7 +65,7 @@ export default function Id() {
                   <div className="trending_image_div ">
                     <Image
                       className="rounded-1"
-                      src={banner}
+                      src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${product.image}`}
                       layout="fill"
                       objectFit="cover"
                       alt=""
@@ -74,7 +75,7 @@ export default function Id() {
 
                 <div className="d-flex align-items-center justify-content-between mt-3 px-2">
                   <p className="h6 dark_blue">{product.name}</p>
-                  <p className="h6 color_yellow">Nrs {product.price} /-</p>
+                  <p className="h6 color_yellow">Nrs {product.price || "Not Mentioned"} /-</p>
                 </div>
               </div>
             ))}

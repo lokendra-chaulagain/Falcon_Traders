@@ -3,9 +3,11 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { MiscellaneousContext } from "../context/MiscellaneousContext.js";
 import Api from "../service/Api.js";
+import { useRouter } from "next/router.js";
 let CallApi = new Api();
 
 export default function Login() {
+  const router=useRouter()
   const { somethingWentWrong, loginSuccess } = useContext(MiscellaneousContext);
 
   const {
@@ -20,9 +22,9 @@ export default function Login() {
   const loginUser = async () => {
     try {
       const res = await CallApi.storeData(`user/signin`, handleAllField);
-      console.log(res);
+      loginSuccess()
+      router.push("/product");
       reset();
-      loginSuccess();
     } catch (error) {
       somethingWentWrong();
       console.log(error);

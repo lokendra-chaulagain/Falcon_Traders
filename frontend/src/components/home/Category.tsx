@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import img3 from "../../asset/banner1.jpg";
 import Link from "next/link";
 
 export default function Category({ categories }: any) {
@@ -16,7 +15,7 @@ export default function Category({ categories }: any) {
               <Link href={`/category/${category.url}`}>
                 <div className=" category_img_div">
                   <Image
-                    src={img3}
+                    src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL_SECURE}/${category.image}`}
                     objectFit="cover"
                     layout="fill"
                     alt=""

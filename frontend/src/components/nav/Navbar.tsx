@@ -9,13 +9,13 @@ import { FaCashRegister } from "react-icons/fa";
 import { BsCartFill } from "react-icons/bs";
 import { BiUserCircle } from "react-icons/bi";
 import Link from "next/link";
-import logo from "../../asset/logo.png";
 import Image from "next/image";
 import Api from "../../service/Api.js";
 import { useRouter } from "next/router";
 let CallApi = new Api();
 
 export default function Navbar() {
+  const logo ="https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671598656/logo_fmyg4z.png"
   const router = useRouter();
   const path = router.route;
 

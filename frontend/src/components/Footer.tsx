@@ -5,6 +5,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import axios from "axios";
+import Link from "next/link";
 
 export default function Footer() {
   const mailSendSuccess = () => toast.success("We will notify our updates");
@@ -62,24 +63,42 @@ export default function Footer() {
           </div>
         </form>
 
-        <div className="col-12 col-lg-4 mt-2  d-flex align-items-center justify-content-center gap-3 dark_blue">
+        <div className="col-12 col-lg-4 mt-4 mt-lg-2  d-flex align-items-center justify-content-center gap-3 dark_blue">
           JOIN US ON
-          <AiOutlineTwitter
-            size={34}
-            className=" footer_icon_div1 rounded-circle cp p-2 ms-5"
-          />
-          <RiFacebookFill
-            size={34}
-            className=" footer_icon_div2 rounded-circle cp p-2"
-          />
-          <AiFillInstagram
-            size={34}
-            className=" footer_icon_div3 rounded-circle cp p-2"
-          />
+          <a
+            href="https://twitter.com/falcontech4"
+            target="_blank"
+            rel="noopener noreferrer">
+            <AiOutlineTwitter
+              size={34}
+              className=" footer_icon_div1 rounded-circle cp p-2 ms-5"
+            />
+            ​
+          </a>
+          <a
+            href="https://www.facebook.com/falcontechnep/"
+            target="_blank"
+            rel="noopener noreferrer">
+            <RiFacebookFill
+              size={34}
+              className=" footer_icon_div2 rounded-circle cp p-2"
+            />
+            ​
+          </a>
+          <a
+            href="https://www.instagram.com/falcontechnepal/"
+            target="_blank"
+            rel="noopener noreferrer">
+            <AiFillInstagram
+              size={34}
+              className=" footer_icon_div3 rounded-circle cp p-2"
+            />
+            ​
+          </a>
         </div>
       </div>
 
-      <hr />
+      <hr className="mt-5 "/>
       <div className="row footer_last_row px-2 px-md-5 ">
         <div className="col small d-flex align-items-center justify-content-center dark_blue">TERMS & CODITION POLICY</div>
         {/* <div className="col d-none d-md-block h4 d-flex align-items-center justify-content-center dark_blue">Logo Here</div> */}
