@@ -386,29 +386,42 @@ body {
 
 /* Blog page ------------------------ */
 
-.second_featured_article_img_div {
-  position: relative;
-  overflow: hidden;
-  height: 50vh;
-}
-
-.monkey {
-  position: relative;
-}
 
 .second_featured_article_desc_div {
-  position: absolute;
   background-color: var(--color-white);
-  top: 20%;
-  right: 0;
-  display: block;
+  position: absolute;
+  top: 55px;
+  width: calc(45rem - 2vw);
+  right: 0px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 810px) {
+  .second_featured_article_desc_div {
+    left: 0px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
   .second_featured_article_desc_div {
     display: none;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .single_blog_image_div {
   position: relative;

@@ -31,7 +31,7 @@ export default function SingleBlogCard({ blogs }: any) {
                 </p>
               </div>
 
-              <p className="fz18">{parse(blog.description)}</p>
+              <p className="fz18">{parse(blog.description.substring(0,300))}</p>
 
               <Link href={`/blog/${blog.url}`}>
                 <button

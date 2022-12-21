@@ -90,7 +90,7 @@ export default function Blog() {
                   {format(featuredBlogs[0].createdAt)} ({featuredBlogs[0].timeRead} mins)
                 </p>
               </div>
-              <p className="fz18">{parse(featuredBlogs[0].description)}</p>
+              <p className="fz18">{parse(featuredBlogs[0].description.substring(0, 300))}</p>
             </div>
           )}
         </div>
@@ -102,7 +102,36 @@ export default function Blog() {
         <SingleBlogCard blogs={bestPickBlogs} />
       </div>
 
-      <div className="monkey">
+
+
+
+
+      <div className="blog_featured_article_div">
+        <div className="featured_article_image_div">
+          <Image
+            src={banner}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+          />
+
+          {featuredBlogs[0] && (
+            <div className="second_featured_article_desc_div  py-5 px-5 ">
+              <h4 className="h4 text-muted pt-5">FEATURED ARTICLE</h4>
+              <h1 className="h1 dark_blue fw-bold">{featuredBlogs[0].title}</h1>
+              <div className="d-flex align-items-center text-muted gap-5">
+                <p>Lokendra Chaulagain</p>
+                <p>
+                  {format(featuredBlogs[0].createdAt)} ({featuredBlogs[0].timeRead} mins)
+                </p>
+              </div>
+              <p className="fz18">{parse(featuredBlogs[0].description.substring(0, 300))}</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* <div className="monkey">
         <div className="second_featured_article_img_div">
           <Image
             src={banner}
@@ -122,10 +151,10 @@ export default function Blog() {
                 {format(featuredBlogs[1].createdAt)} ({featuredBlogs[1].timeRead} mins)
               </p>
             </div>
-            <p className="fz18">{parse(featuredBlogs[1].description)}</p>
+            <p className="fz18">{parse(featuredBlogs[1].description.substring(0, 300))}</p>
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="container my-5 ">
         <div className="tag_row row">
