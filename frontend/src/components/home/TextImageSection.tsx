@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import banner from "../../asset/banner.png";
 import { BsArrowRight } from "react-icons/bs";
 
 export default function TextImageSection() {
+  const banner="https://res.cloudinary.com/dxp4ne8fl/image/upload/v1671598841/fa_yrzbzr.jpg"
   return (
     <div className="row d-flex align-items-start  text_img_wrapper">
       <div className="col-12 col-xl-6 text_img_section_img_div">

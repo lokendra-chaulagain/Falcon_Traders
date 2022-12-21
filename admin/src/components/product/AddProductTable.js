@@ -32,6 +32,7 @@ export default function AddProductTable({ categories, colors, sizes, setIsUpdate
     formData.append("description", handleAllField.description);
     formData.append("featured", handleAllField.featured);
     formData.append("topSelling", handleAllField.topSelling);
+    formData.append("price", handleAllField.price);
     if (images) {
       formData.append("thumbnail", images[0].file, images[0].file.name);
     }
@@ -68,6 +69,21 @@ export default function AddProductTable({ categories, colors, sizes, setIsUpdate
               placeholder="name"
             />
             {errors.name && <p className="form_hook_error">{`${errors.name.message}`}</p>}
+          </div>
+
+          <div className="row ">
+            <label
+              htmlFor="price"
+              className="form-label mt-3 p_zero_first_cap h6 ">
+              Price
+            </label>
+            <input
+              type="number"
+              className=" input_field_style form-control form-control-lg px-2  border-0  rounded-0"
+              {...register("price", { required: "price is required" })}
+              placeholder="Price"
+            />
+            {errors.price && <p className="form_hook_error">{`${errors.price.message}`}</p>}
           </div>
 
           <div className="row">
@@ -252,7 +268,7 @@ export default function AddProductTable({ categories, colors, sizes, setIsUpdate
             <label
               htmlFor="topSelling"
               className="form-label mt-3 p_zero_first_cap h6 ">
-            Trending Product
+              Trending Product
             </label>
 
             <select

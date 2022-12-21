@@ -13,9 +13,11 @@ const JoditEditor = dynamic(() => import("jodit-react"), {
 });
 
 const EditBlogTable = ({ singleBlog, id }) => {
+  console.log(singleBlog);
   const router = useRouter();
   const [content, setContent] = useState("");
   const { updatedSuccess } = useContext(MiscellaneousContext);
+
   const {
     register,
     handleSubmit,
@@ -24,6 +26,11 @@ const EditBlogTable = ({ singleBlog, id }) => {
     reset,
   } = useForm();
   const handleAllField = watch();
+
+  useEffect(() => {
+    console.log(singleBlog);
+    reset(singleBlog);
+  }, [singleBlog]);
 
   const [images, setImages] = useState();
   const onChange = (imageList) => {

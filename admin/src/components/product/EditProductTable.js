@@ -35,12 +35,13 @@ export default function EditProductTable({ categories, sizes, colors, singleProd
   const updateProduct = async () => {
     const formData = new FormData();
     formData.append("name", handleAllField.name);
-    formData.append("color", handleAllField.color);
-    formData.append("size", handleAllField.size);
+    // formData.append("color", handleAllField.color);
+    // formData.append("size", handleAllField.size);
     formData.append("category", handleAllField.category);
     formData.append("description", handleAllField.description);
     formData.append("featured", handleAllField.featured);
     formData.append("topSelling", handleAllField.topSelling);
+    formData.append("price", handleAllField.price);
     if (images) {
       formData.append("thumbnail", images[0].file, images[0].file.name);
     }
@@ -77,6 +78,20 @@ export default function EditProductTable({ categories, sizes, colors, singleProd
               placeholder="name"
             />
             {errors.name && <p className="form_hook_error">{`${errors.name.message}`}</p>}
+          </div>
+
+          <div className="row ">
+            <label
+              htmlFor="price"
+              className="form-label mt-3 p_zero_first_cap h6 ">
+              Price
+            </label>
+            <input
+              className=" input_field_style form-control form-control-lg px-2  border-0  rounded-0"
+              {...register("price", { required: "price is required" })}
+              placeholder="price"
+            />
+            {errors.price && <p className="form_hook_error">{`${errors.price.message}`}</p>}
           </div>
 
           <div className="row">
@@ -139,7 +154,7 @@ export default function EditProductTable({ categories, sizes, colors, singleProd
             )}
           </div>
 
-          <div className="row ">
+          {/* <div className="row ">
             <label
               htmlFor="color"
               className="form-label mt-3 p_zero_first_cap h6 ">
@@ -161,9 +176,9 @@ export default function EditProductTable({ categories, sizes, colors, singleProd
                 ))}
             </select>
             {errors.color && <p className="form_hook_error">{`${errors.color.message}`}</p>}
-          </div>
+          </div> */}
 
-          <div className="row">
+          {/* <div className="row">
             <label
               htmlFor="size"
               className="form-label mt-3 p_zero_first_cap h6 ">
@@ -185,7 +200,7 @@ export default function EditProductTable({ categories, sizes, colors, singleProd
                 ))}
             </select>
             {errors.size && <p className="form_hook_error">{`${errors.size.message}`}</p>}
-          </div>
+          </div> */}
 
           <div className="row ">
             <label

@@ -1,11 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import axios from "axios";
 
 function LoginBox() {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -16,13 +13,12 @@ function LoginBox() {
 
   const login = async () => {
     try {
-      const res = await axios.post("http://localhost:12002/api/user/signin", handleAllField);
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/user/signin`, handleAllField);
       console.log(res.data);
       const { accessToken } = res.data;
       console.log(accessToken);
       localStorage.setItem("accessToken", accessToken);
-      window.location.reload();
-      router.push("/");
+      window.location.replace("/banner");
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +42,7 @@ function LoginBox() {
               Email Address
             </label>
             <input
-            type="email"
+              type="email"
               className="form-control form-control-lg rounded-1 login_input_form "
               {...register("email", { required: "email is required" })}
               placeholder="Email Address "

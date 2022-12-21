@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (typeof window != "undefined") {
       const accessToken = localStorage.getItem("accessToken");
+      console.log(accessToken)
       setAccessToken(accessToken);
     }
   }, []);

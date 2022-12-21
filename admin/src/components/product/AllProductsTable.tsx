@@ -7,8 +7,6 @@ import { AiTwotoneEdit } from "react-icons/ai";
 import Image from "next/image";
 
 export default function AllProductsTable({ products, deleteProduct }: any) {
-  console.log(products[12]);
-
   return (
     <>
       <div className="d-flex align-items-center justify-content-between  ">
@@ -29,6 +27,7 @@ export default function AllProductsTable({ products, deleteProduct }: any) {
               <th scope="col">S.N</th>
               <th scope="col">Name</th>
               <th scope="col">Image</th>
+              <th scope="col">Price(Nrs)</th>
               <th scope="col">Size</th>
               <th scope="col">Color</th>
               <th scope="col">Category</th>
@@ -63,6 +62,7 @@ export default function AllProductsTable({ products, deleteProduct }: any) {
                       </div>
                     </a>
                   </td>
+                  <td>{product.price}</td>
                   <td className="small">
                     <div className="dropdown">
                       <button

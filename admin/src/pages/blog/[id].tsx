@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditBlogTable from "../../components/blog/EditBlogTable";
-import axios from "axios";
 import { useRouter } from "next/router";
 import Api from "../../../service/Api.js";
 let CallApi = new Api();
@@ -14,9 +13,8 @@ const Id = () => {
   const fetchSingleBlog = async () => {
     try {
       let res = await CallApi.EditData(`blog/${id}`);
-      setSingleBlog(res.data);
-      setIsUpdated(1);
-      console.log("Update success");
+      setSingleBlog(res);
+      setIsUpdated(8);
     } catch (error) {
       console.log(error);
     }
